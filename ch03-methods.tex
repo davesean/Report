@@ -1,0 +1,38 @@
+\chapter{Methods}
+In this chapter the methods needed to create a parametric model and  a mapping between parametric models are introduced and explained. First off, the data gathering and preprocessing are outlined. Multiple variants of the parametric model are discussed. Different learning approaches for the mapping are reviewed. Lastly, a character editor is presented that is used to generate data for a parametric model.
+
+\section{Data Acquisition and Preprocessing}
+Optimally it would be necessary to have a large data set of images of women before and after breast enhancement surgery, where the patients pose topless. It is very unlikely though that such a database exists, due to the fact that having breast surgery is a very personal topic and people generally don't enjoy posing naked. Therefore the images used, were downloaded from a website\footnote{https://my.crisalix.com/} that offered to simulate various plastic surgical procedures including breast enhancement. For each user a 3D model of their torse was displayed side by side with different enhancements varying in size. Each model was made up of a sequence of 24 images displaying the torse from different angles. This dataset fit the requirements nicely as images are available for \it{before} and \it{after}, except the \it{after} is generated and based on their model. Additionally, each after image sequence had a short label, usually describing how much silicon was added, that was also saved for clustering.
+
+In total 2937 examples were retrieved and preprocessed. All of these were comprised of one before and at least one after image sequence. In total this dataset was made up of 748 subjects before images.
+\subsection{SfM}
+\subsection{Clustering Data}
+\subsection{Non-rigid ICP}
+
+\section{Parametric Model from Data}
+\subsection{Pairwise Alignment}
+\subsection{Variants}
+\subsubsection{Point}
+\subsubsection{Point Normals}
+\subsubsection{Deformation}
+
+\section{Mapping}
+
+\section{Linear Method}
+
+\section{Non-Linear Variants}
+\subsection{Random Forest}
+
+\subsection{Decision Tree}
+
+\subsection{Multilayer Perceptron}
+
+\section{Parametric Model from Editor}
+
+\section{Evaluation}
+
+\subsection{Mapping}
+% Compare to GT
+
+\subsection{MH}
+% Compare to NRICP+SimonResultCeres

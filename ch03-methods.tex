@@ -2,15 +2,27 @@
 In this chapter the methods needed to create a parametric model and  a mapping between parametric models are introduced and explained. First off, the data gathering and preprocessing are outlined. Multiple variants of the parametric model are discussed. Different learning approaches for the mapping are reviewed. Lastly, a character editor is presented that is used to generate data for a parametric model.
 
 \section{Data Acquisition and Preprocessing}
-Optimally it would be necessary to have a large data set of images of women before and after breast enhancement surgery, where the patients pose topless. It is very unlikely though that such a database exists, due to the fact that having breast surgery is a very personal topic and people generally don't enjoy posing naked. Therefore the images used, were downloaded from a website\footnote{https://my.crisalix.com/} that offered to simulate various plastic surgical procedures including breast enhancement. For each user a 3D model of their torse was displayed side by side with different enhancements varying in size. Each model was made up of a sequence of 24 images displaying the torse from different angles. This dataset fit the requirements nicely as images are available for \it{before} and \it{after}, except the \it{after} is generated and based on their model. Additionally, each after image sequence had a short label, usually describing how much silicon was added, that was also saved for clustering.
+Optimally it would be necessary to have a large data set of images of women before and after breast enhancement surgery, where the patients pose topless. It is very unlikely though that such a database exists, due to the fact that having breast surgery is a very personal topic and people generally don't enjoy posing naked. Therefore the images used were downloaded from a website\footnote{https://my.crisalix.com/} that offered to simulate various plastic surgical procedures including breast enhancement. For each user a 3D model of their torse was displayed side by side with different enhancements varying in size. Each model was made up of a sequence of 24 images displaying the torse from different angles. This dataset fit the requirements nicely as images are available for \textit{before} and \textit{after}, except the \textit{after} is generated and based on their model. Additionally, each after image sequence had a short label, usually describing how much silicon was added, that was also saved for further evaluation. In total 2'937 examples were retrieved and preprocessed. This dataset included images from 748 subjects of which each one was comprised of one \textit{before} and at least one \textit{after} image sequence.\\
 
-In total 2937 examples were retrieved and preprocessed. All of these were comprised of one before and at least one after image sequence. In total this dataset was made up of 748 subjects before images.
-\subsection{SfM}
-\subsection{Clustering Data}
-\subsection{Non-rigid ICP}
+In a next step these image sequences needed to be transformed into point clouds. This was done using a general-purpose Structure-from-Motion (SfM) \cite{schoenberger2016sfm} and Multi-View Stereo (MVS) \cite{schoenberger2016mvs} pipeline called COLMAP. This generated point clouds spanning from 5'000 to 15'000 points. Some of the images needed to be discarded, due to the fact that SfM created a point cloud with less than 1'000 points or the point clouds had holes, such that certain areas had no points and were not defined at all. The remaining point clouds were cleaned using a C++ implementation by Biland \cite{Biland17} that removed white points around the point clouds.
 
-\section{Parametric Model from Data}
-\subsection{Pairwise Alignment}
+The mapping required to have one set of point clouds of \textit{before} examples and the corresponding\footnote{Corresponding meaning, based on the same subject.} \textit{after} examples. Therefore the data was split into sets of \textit{before} and after point clouds. Additionally, to create a better mapping, only the \textit{after} examples that were labelled "350" were included. This resulted in 57 examples in the \textit{before} and 57 in the \textit{after} set. All of these point clouds were further processed in a MATLAB implementation by Biland \cite{Biland17} to generate mesh files.
+
+\section{Parametric Model from Meshes}
+In this section it is described how a parametric model is obtained using principle component analysis (PCA). Given $n$ meshes $m_i \in \mathbb{R}^{k \times 3}$, where $k$ describes the amound of vertices $m$ has, each mesh needs to be transformed to be of shape $\mathbb{R}^{1 \times 3k}$. Then, all transformed meshes are stacked into a matrix $M \in \mathbb{R}^{n \times 3k}$. As the differences over each column isn't significant, the mean $\bar{m}$ of the matrix $M$ is subtracted from each row of $M$.
+\begin{gather}
+A :=
+\begin{bmatrix}
+ m_1' - \bar{m} \\
+ m_2' - \bar{m} \\
+ \vdots \\
+ m_n' - \bar{m}
+\end{bmatrix}
+ \in \mathbb{R}^{n \times 3k}
+\end{gather}
+
+Next, PCA is run with matrix $A$ as the input.
+
 \subsection{Variants}
 \subsubsection{Point}
 \subsubsection{Point Normals}

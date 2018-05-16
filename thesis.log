@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2011.6.14)  10 APR 2018 16:21
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2011.6.14)  16 MAY 2018 16:50
 entering extended mode
-**E:/Polybox/Report/thesis.tex
-(E:/Polybox/Report/thesis.tex
+**C:/Users/haldavid/Desktop/Report/thesis.tex
+(C:/Users/haldavid/Desktop/Report/thesis.tex
 LaTeX2e <2009/09/24>
 Babel <v3.8l> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -490,15 +490,17 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip68
 )
-(E:\Polybox\Report\preamble.tex
+(C:\Users\haldavid\Desktop\Report\preamble.tex
 \c@localFigure=\count131
 \c@localTable=\count132
-) (E:\Polybox\Report\thesis.aux
-(E:\Polybox\Report\abstract.aux) (E:\Polybox\Report\ch01-introduction.aux)
-(E:\Polybox\Report\ch02-related-work.aux)
-(E:\Polybox\Report\ch03-more-chapters.aux)
-(E:\Polybox\Report\ch04-conclusion.aux)
-(E:\Polybox\Report\apx-sample-appendix.aux))
+)
+(C:\Users\haldavid\Desktop\Report\thesis.aux
+(C:\Users\haldavid\Desktop\Report\abstract.aux)
+(C:\Users\haldavid\Desktop\Report\ch01-introduction.aux)
+(C:\Users\haldavid\Desktop\Report\ch02-related-work.aux)
+(C:\Users\haldavid\Desktop\Report\ch03-methods.aux)
+(C:\Users\haldavid\Desktop\Report\ch04-results-conclusion.aux)
+(C:\Users\haldavid\Desktop\Report\apx-sample-appendix.aux))
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 81.
 LaTeX Font Info:    ... okay on input line 81.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 81.
@@ -551,10 +553,11 @@ LaTeX Info: Redefining \ref on input line 81.
 LaTeX Info: Redefining \pageref on input line 81.
 LaTeX Info: Redefining \nameref on input line 81.
 
-(E:\Polybox\Report\thesis.out) (E:\Polybox\Report\thesis.out)
+(C:\Users\haldavid\Desktop\Report\thesis.out)
+(C:\Users\haldavid\Desktop\Report\thesis.out)
 \@outlinefile=\write3
 
-(E:\Polybox\Report\studchapter.tex)
+(C:\Users\haldavid\Desktop\Report\studchapter.tex)
 Package hyperref Info: Option `pageanchor' set `false' on input line 102.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <24.88> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 120.
@@ -566,14 +569,14 @@ File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <24.88> not available
 (Font)              Font shape `T1/phv/b/n' tried instead on input line 120.
 
-<figures/ETH_logo.pdf, id=79, 8816.1872pt x 2366.8425pt>
+<figures/ETH_logo.pdf, id=127, 8816.1872pt x 2366.8425pt>
 File: figures/ETH_logo.pdf Graphic file (type pdf)
 
 <use figures/ETH_logo.pdf>
 Package pdftex.def Info: figures/ETH_logo.pdf used on input line 134.
 (pdftex.def)             Requested size: 136.59175pt x 36.65678pt.
 
-<figures/CGL_logo.pdf, id=81, 426.7935pt x 142.26149pt>
+<figures/CGL_logo.pdf, id=129, 426.7935pt x 142.26149pt>
 File: figures/CGL_logo.pdf Graphic file (type pdf)
 
 <use figures/CGL_logo.pdf>
@@ -583,13 +586,15 @@ Package pdftex.def Info: figures/CGL_logo.pdf used on input line 135.
 
 
 
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map} <E:/Polybox/Report/figures
-/ETH_logo.pdf> <E:/Polybox/Report/figures/CGL_logo.pdf>] [2
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map} <C:/Users/haldavid/Desktop
+/Report/figures/ETH_logo.pdf> <C:/Users/haldavid/Desktop/Report/figures/CGL_log
+o.pdf>] [2
 
 
 ]
 Package hyperref Info: Option `pageanchor' set `true' on input line 141.
- (E:\Polybox\Report\abstract.tex
+
+(C:\Users\haldavid\Desktop\Report\abstract.tex
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <12> not available
 (Font)              Font shape `T1/phv/b/n' tried instead on input line 1.
 LaTeX Font Info:    Try loading font information for U+msa on input line 3.
@@ -616,26 +621,26 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 
 
 
-] (E:\Polybox\Report\thesis.toc)
+] (C:\Users\haldavid\Desktop\Report\thesis.toc [5
+
+
+
+
+])
 \tf@toc=\write4
- [5
-
-
-
-
-] [6
-
-
-] (E:\Polybox\Report\thesis.lof)
+ [6]
+(C:\Users\haldavid\Desktop\Report\thesis.lof)
 \tf@lof=\write5
+ [7
 
-[7
+
 
 
 ] [8
 
 
-] (E:\Polybox\Report\thesis.lot)
+]
+(C:\Users\haldavid\Desktop\Report\thesis.lot)
 \tf@lot=\write6
  [9
 
@@ -644,10 +649,15 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 
 
 ]
-(E:\Polybox\Report\ch01-introduction.tex
+(C:\Users\haldavid\Desktop\Report\ch01-introduction.tex
 Chapter 1.
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <17.28> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 12.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <100> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 7.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 17.
 
 Overfull \hbox (2.28004pt too wide) has occurred while \output is active
 []|[] []
@@ -661,13 +671,9 @@ Overfull \vbox (459.06232pt too high) has occurred while \output is active []
 
 
 
-]) [2] (E:\Polybox\Report\ch02-related-work.tex
+]) [2] (C:\Users\haldavid\Desktop\Report\ch02-related-work.tex
 Chapter 2.
-LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <17.28> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 10.
-LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 15.
-
+)
 Overfull \hbox (2.28004pt too wide) has occurred while \output is active
 []|[] []
  []
@@ -681,7 +687,7 @@ Overfull \vbox (459.06232pt too high) has occurred while \output is active []
 
 
 
-] [4]) [5] (E:\Polybox\Report\ch03-more-chapters.tex [6
+] (C:\Users\haldavid\Desktop\Report\ch03-methods.tex [4
 
 
 
@@ -689,6 +695,11 @@ Overfull \vbox (459.06232pt too high) has occurred while \output is active []
 ]
 Chapter 3.
 
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+
+ []
+
+
 Overfull \hbox (2.28004pt too wide) has occurred while \output is active
 []|[] []
  []
@@ -697,39 +708,21 @@ Overfull \hbox (2.28004pt too wide) has occurred while \output is active
 Overfull \vbox (459.06232pt too high) has occurred while \output is active []
 
 
-[7]
-LaTeX Font Info:    Font shape `T1/ptm/bx/sl' in size <10.95> not available
-(Font)              Font shape `T1/ptm/b/sl' tried instead on input line 32.
- <figures/IgeaNarrowBand.png, id=213, 752.8125pt x 577.40718pt>
-File: figures/IgeaNarrowBand.png Graphic file (type png)
+[5]
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <14.4> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 26.
+)
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-<use figures/IgeaNarrowBand.png>
-Package pdftex.def Info: figures/IgeaNarrowBand.png used on input line 42.
-(pdftex.def)             Requested size: 221.73146pt x 170.06932pt.
+ [6]
+[7] (C:\Users\haldavid\Desktop\Report\ch04-results-conclusion.tex [8
 
-<figures/voldiff_ui.png, id=214, 1015.795pt x 707.64375pt>
-File: figures/voldiff_ui.png Graphic file (type png)
 
-<use figures/voldiff_ui.png>
-Package pdftex.def Info: figures/voldiff_ui.png used on input line 43.
-(pdftex.def)             Requested size: 221.73146pt x 154.46196pt.
-File: figures/IgeaNarrowBand.png Graphic file (type png)
- <use figures/IgeaNarrowBand.png>
-Package pdftex.def Info: figures/IgeaNarrowBand.png used on input line 59.
-(pdftex.def)             Requested size: 136.59175pt x 104.76581pt.
-File: figures/voldiff_ui.png Graphic file (type png)
 
-<use figures/voldiff_ui.png>
-Package pdftex.def Info: figures/voldiff_ui.png used on input line 60.
-(pdftex.def)             Requested size: 136.59175pt x 95.14986pt.
- [8]) [9 <E:/Polybox/Report/figures/IgeaNarrowBand.png> <E:/Polybox/Report/figu
-res/voldiff_ui.png>] [10]
-(E:\Polybox\Report\ch04-conclusion.tex
+
+]
 Chapter 4.
 
-Underfull \vbox (badness 4454) has occurred while \output is active []
-
-
 Overfull \hbox (2.28004pt too wide) has occurred while \output is active
 []|[] []
  []
@@ -738,12 +731,27 @@ Overfull \hbox (2.28004pt too wide) has occurred while \output is active
 Overfull \vbox (459.06232pt too high) has occurred while \output is active []
 
 
-[11
+[9] [10
+
+
+]
+Chapter 5.
+)
+Overfull \hbox (2.28004pt too wide) has occurred while \output is active
+[]|[] []
+ []
+
+
+Overfull \vbox (459.06232pt too high) has occurred while \output is active []
+
+
+[11] (C:\Users\haldavid\Desktop\Report\apx-sample-appendix.tex [12
 
 
 
 
-]) [12] (E:\Polybox\Report\apx-sample-appendix.tex
+
+]
 Appendix A.
 
 Overfull \hbox (2.28004pt too wide) has occurred while \output is active
@@ -754,17 +762,14 @@ Overfull \hbox (2.28004pt too wide) has occurred while \output is active
 Overfull \vbox (459.06232pt too high) has occurred while \output is active []
 
 
-[13
+[13]
+LaTeX Font Info:    Font shape `T1/ptm/bx/sl' in size <10.95> not available
+(Font)              Font shape `T1/ptm/b/sl' tried instead on input line 19.
 
-
-
-
-
-]
 Underfull \vbox (badness 10000) detected at line 55
  []
 
-[14] [15]) [16] (E:\Polybox\Report\thesis.bbl)
+[14] [15]) [16] (C:\Users\haldavid\Desktop\Report\thesis.bbl)
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 196.
  [17
 
@@ -774,37 +779,44 @@ Package atveryend Info: Empty hook `BeforeClearDocument' on input line 196.
 ]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 196.
 
-(E:\Polybox\Report\thesis.aux (E:\Polybox\Report\abstract.aux)
-(E:\Polybox\Report\ch01-introduction.aux)
-(E:\Polybox\Report\ch02-related-work.aux)
-(E:\Polybox\Report\ch03-more-chapters.aux)
-(E:\Polybox\Report\ch04-conclusion.aux)
-(E:\Polybox\Report\apx-sample-appendix.aux))
+(C:\Users\haldavid\Desktop\Report\thesis.aux
+(C:\Users\haldavid\Desktop\Report\abstract.aux)
+(C:\Users\haldavid\Desktop\Report\ch01-introduction.aux)
+(C:\Users\haldavid\Desktop\Report\ch02-related-work.aux)
+(C:\Users\haldavid\Desktop\Report\ch03-methods.aux)
+(C:\Users\haldavid\Desktop\Report\ch04-results-conclusion.aux)
+(C:\Users\haldavid\Desktop\Report\apx-sample-appendix.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 196.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 196.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: EFA7350A578525C25E48110EA08FF4CE;1188.
+(rerunfilecheck)             Checksum: 35D6B55B788DFDA49897D0BF177FEAC6;1978.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 196.
  ) 
 Here is how much of TeX's memory you used:
- 10294 strings out of 494049
- 153660 string characters out of 3148531
- 321659 words of memory out of 3000000
- 13303 multiletter control sequences out of 15000+200000
- 62624 words of font info for 70 fonts, out of 3000000 for 9000
+ 10317 strings out of 494049
+ 154706 string characters out of 3148531
+ 320659 words of memory out of 3000000
+ 13310 multiletter control sequences out of 15000+200000
+ 64258 words of font info for 78 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 43i,28n,51p,2547b,492s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 43i,28n,51p,1329b,512s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Progra
-m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Fi
-les (x86)/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files (x86
-)/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Program Files (x86)/MiKTeX
- 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/
-type1/urw/times/utmr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/t
-imes/utmr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmri8
-a.pfb>
-Output written on thesis.pdf (29 pages, 458830 bytes).
+m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program 
+Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Fi
+les (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files
+ (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files (x
+86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files (x86)/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files (x86)/MiKTe
+X 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Program Files (x86)/Mi
+KTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9
+/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/t
+ype1/urw/times/utmb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/ti
+mes/utmr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.
+pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on thesis.pdf (29 pages, 200778 bytes).
 PDF statistics:
- 304 PDF objects out of 1000 (max. 8388607)
- 58 named destinations out of 1000 (max. 500000)
- 185 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 398 PDF objects out of 1000 (max. 8388607)
+ 75 named destinations out of 1000 (max. 500000)
+ 271 words of extra memory for PDF output out of 10000 (max. 10000000)
 

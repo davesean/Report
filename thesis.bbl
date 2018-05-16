@@ -8,6 +8,22 @@ Simon~L. Altman.
   century?
 \newblock {\em A Mathematical Association of America journal}, dec 1989.
 
+\bibitem[Bil17]{Biland17}
+S.~Biland.
+\newblock Anatomically based body part modelling and fitting, 2017.
+
+\bibitem[SF16]{schoenberger2016sfm}
+Johannes~Lutz Sch\"{o}nberger and Jan-Michael Frahm.
+\newblock Structure-from-motion revisited.
+\newblock In {\em Conference on Computer Vision and Pattern Recognition
+  (CVPR)}, 2016.
+
+\bibitem[SZPF16]{schoenberger2016mvs}
+Johannes~Lutz Sch\"{o}nberger, Enliang Zheng, Marc Pollefeys, and Jan-Michael
+  Frahm.
+\newblock Pixelwise view selection for unstructured multi-view stereo.
+\newblock In {\em European Conference on Computer Vision (ECCV)}, 2016.
+
 \bibitem[ZRB{\etalchar{+}}04]{Zwicker04Perspective}
 Matthias Zwicker, Jussi R\"as\"anen, Mario Botsch, Carsten Dachsbacher, and
   Mark Pauly.

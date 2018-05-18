@@ -7,28 +7,27 @@
 \contentsline {chapter}{\numberline {2}Related Work}{3}{chapter.2}
 \contentsline {chapter}{\numberline {3}Methods}{5}{chapter.3}
 \contentsline {section}{\numberline {3.1}Data Acquisition and Preprocessing}{5}{section.3.1}
-\contentsline {section}{\numberline {3.2}Parametric Model from Meshes}{6}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Variants}{7}{subsection.3.2.1}
-\contentsline {subsubsection}{Point}{7}{section*.6}
-\contentsline {subsubsection}{Point Normals}{7}{section*.7}
-\contentsline {subsubsection}{Deformation}{7}{section*.8}
-\contentsline {section}{\numberline {3.3}Mapping}{7}{section.3.3}
-\contentsline {section}{\numberline {3.4}Linear Method}{7}{section.3.4}
-\contentsline {section}{\numberline {3.5}Non-Linear Variants}{7}{section.3.5}
-\contentsline {subsection}{\numberline {3.5.1}Random Forest}{7}{subsection.3.5.1}
-\contentsline {subsection}{\numberline {3.5.2}Decision Tree}{7}{subsection.3.5.2}
-\contentsline {subsection}{\numberline {3.5.3}Multilayer Perceptron}{7}{subsection.3.5.3}
-\contentsline {section}{\numberline {3.6}Parametric Model from Editor}{7}{section.3.6}
-\contentsline {section}{\numberline {3.7}Evaluation}{7}{section.3.7}
-\contentsline {subsection}{\numberline {3.7.1}Mapping}{7}{subsection.3.7.1}
-\contentsline {subsection}{\numberline {3.7.2}MH}{7}{subsection.3.7.2}
-\contentsline {chapter}{\numberline {4}Results}{9}{chapter.4}
-\contentsline {section}{\numberline {4.1}Error Metrics}{9}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Distance Point}{9}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}Face orientations}{9}{subsection.4.1.2}
-\contentsline {chapter}{\numberline {5}Conclusion and Outlook}{11}{chapter.5}
-\contentsline {chapter}{\numberline {A}Information For The Few}{13}{appendix.A}
-\contentsline {section}{\numberline {A.1}Foo Bar Baz}{13}{section.A.1}
-\contentsline {section}{\numberline {A.2}Barontes}{14}{section.A.2}
-\contentsline {section}{\numberline {A.3}A Long Table with Booktabs}{14}{section.A.3}
-\contentsline {chapter}{Bibliography}{17}{table.A.1}
+\contentsline {subsection}{\numberline {3.1.1}Alignment}{6}{subsection.3.1.1}
+\contentsline {section}{\numberline {3.2}Parametric Model from Meshes}{7}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Face Deformations}{8}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Point Normals}{9}{subsection.3.2.2}
+\contentsline {section}{\numberline {3.3}Mapping}{9}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Linear Method}{9}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Non-Linear Variants}{9}{subsection.3.3.2}
+\contentsline {subsubsection}{Random Forest}{10}{section*.8}
+\contentsline {subsubsection}{Decision Tree}{10}{section*.9}
+\contentsline {subsubsection}{Multilayer Perceptron}{10}{section*.10}
+\contentsline {section}{\numberline {3.4}Parametric Model from Editor}{10}{section.3.4}
+\contentsline {section}{\numberline {3.5}Evaluation}{10}{section.3.5}
+\contentsline {subsection}{\numberline {3.5.1}Mapping Error}{10}{subsection.3.5.1}
+\contentsline {subsection}{\numberline {3.5.2}Fit to Pointcloud}{10}{subsection.3.5.2}
+\contentsline {chapter}{\numberline {4}Results}{11}{chapter.4}
+\contentsline {section}{\numberline {4.1}Error Metrics}{11}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Distance Point}{11}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Face orientations}{11}{subsection.4.1.2}
+\contentsline {section}{\numberline {4.2}PCA point/normals/deform}{11}{section.4.2}
+\contentsline {section}{\numberline {4.3}Learning mapping}{11}{section.4.3}
+\contentsline {section}{\numberline {4.4}Data MH vs NRICP}{11}{section.4.4}
+\contentsline {section}{\numberline {4.5}Data Real vs NRICP}{11}{section.4.5}
+\contentsline {chapter}{\numberline {5}Conclusion and Outlook}{13}{chapter.5}
+\contentsline {chapter}{Bibliography}{14}{chapter.5}

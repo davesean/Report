@@ -1,16 +1,21 @@
 \newcommand{\etalchar}[1]{$^{#1}$}
-\begin{thebibliography}{ZRB{\etalchar{+}}04}
-
-\bibitem[Alt89]{Altman89QuaternionScandal}
-Simon~L. Altman.
-\newblock Hamilton, grassmann, rodrigues, and the quaternion scandal---what
-  went wrong with one of the major mathematical discoveries of the nineteenth
-  century?
-\newblock {\em A Mathematical Association of America journal}, dec 1989.
+\begin{thebibliography}{PVG{\etalchar{+}}11}
 
 \bibitem[Bil17]{Biland17}
 S.~Biland.
 \newblock Anatomically based body part modelling and fitting, 2017.
+
+\bibitem[Hor87]{horn1987closed}
+Berthold~KP Horn.
+\newblock Closed-form solution of absolute orientation using unit quaternions.
+\newblock {\em JOSA A}, 4(4):629--642, 1987.
+
+\bibitem[PVG{\etalchar{+}}11]{scikit-learn}
+F.~Pedregosa, G.~Varoquaux, A.~Gramfort, V.~Michel, B.~Thirion, O.~Grisel,
+  M.~Blondel, P.~Prettenhofer, R.~Weiss, V.~Dubourg, J.~Vanderplas, A.~Passos,
+  D.~Cournapeau, M.~Brucher, M.~Perrot, and E.~Duchesnay.
+\newblock Scikit-learn: Machine learning in {P}ython.
+\newblock {\em Journal of Machine Learning Research}, 12:2825--2830, 2011.
 
 \bibitem[SF16]{schoenberger2016sfm}
 Johannes~Lutz Sch\"{o}nberger and Jan-Michael Frahm.
@@ -18,16 +23,16 @@ Johannes~Lutz Sch\"{o}nberger and Jan-Michael Frahm.
 \newblock In {\em Conference on Computer Vision and Pattern Recognition
   (CVPR)}, 2016.
 
+\bibitem[SP04]{sumner2004deformation}
+Robert~W Sumner and Jovan Popovi{\'c}.
+\newblock Deformation transfer for triangle meshes.
+\newblock In {\em ACM Transactions on Graphics (TOG)}, volume~23, pages
+  399--405. ACM, 2004.
+
 \bibitem[SZPF16]{schoenberger2016mvs}
 Johannes~Lutz Sch\"{o}nberger, Enliang Zheng, Marc Pollefeys, and Jan-Michael
   Frahm.
 \newblock Pixelwise view selection for unstructured multi-view stereo.
 \newblock In {\em European Conference on Computer Vision (ECCV)}, 2016.
-
-\bibitem[ZRB{\etalchar{+}}04]{Zwicker04Perspective}
-Matthias Zwicker, Jussi R\"as\"anen, Mario Botsch, Carsten Dachsbacher, and
-  Mark Pauly.
-\newblock Perspective accurate splatting.
-\newblock In {\em Proceedings of Graphics Interface}, pages 247--254, 2004.
 
 \end{thebibliography}

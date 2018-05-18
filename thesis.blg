@@ -5,8 +5,8 @@ A level-1 auxiliary file: ch01-introduction.aux
 A level-1 auxiliary file: ch02-related-work.aux
 A level-1 auxiliary file: ch03-methods.aux
 A level-1 auxiliary file: ch04-results-conclusion.aux
-A level-1 auxiliary file: apx-sample-appendix.aux
 Database file #1: graphics.bib
 Warning--entry type for "Biland17" isn't style-file defined
 --line 4640 of file graphics.bib
-(There was 1 warning)
+Warning--can't use both volume and number fields in sumner2004deformation
+(There were 2 warnings)

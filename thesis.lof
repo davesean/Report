@@ -3,5 +3,8 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {\relax 3.1}{\ignorespaces The mesh is depicted as the grey surface. The points drawn in green are used for the alignment.\relax }}{6}{figure.caption.6}
 \contentsline {figure}{\numberline {\relax 3.2}{\ignorespaces A vertex is added to the triangle that lies in the direction of the normal.\relax }}{8}{figure.caption.7}
+\contentsline {figure}{\numberline {\relax 3.3}{\ignorespaces Fitting a line to a point cloud using linear least-squares.\relax }}{10}{figure.caption.8}
+\contentsline {figure}{\numberline {\relax 3.4}{\ignorespaces Example of a decision tree following example of section \ref {sec:dt}\relax }}{11}{figure.caption.10}
+\contentsline {figure}{\numberline {\relax 3.5}{\ignorespaces Scheme of a multilayer perceptron for regression.\relax }}{12}{figure.caption.13}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

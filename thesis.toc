@@ -14,20 +14,20 @@
 \contentsline {section}{\numberline {3.3}Mapping}{9}{section.3.3}
 \contentsline {subsection}{\numberline {3.3.1}Linear Method}{9}{subsection.3.3.1}
 \contentsline {subsection}{\numberline {3.3.2}Non-Linear Variants}{9}{subsection.3.3.2}
-\contentsline {subsubsection}{Random Forest}{10}{section*.8}
 \contentsline {subsubsection}{Decision Tree}{10}{section*.9}
-\contentsline {subsubsection}{Multilayer Perceptron}{10}{section*.10}
-\contentsline {section}{\numberline {3.4}Parametric Model from Editor}{10}{section.3.4}
-\contentsline {section}{\numberline {3.5}Evaluation}{10}{section.3.5}
-\contentsline {subsection}{\numberline {3.5.1}Mapping Error}{10}{subsection.3.5.1}
-\contentsline {subsection}{\numberline {3.5.2}Fit to Pointcloud}{10}{subsection.3.5.2}
-\contentsline {chapter}{\numberline {4}Results}{11}{chapter.4}
-\contentsline {section}{\numberline {4.1}Error Metrics}{11}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Distance Point}{11}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}Face orientations}{11}{subsection.4.1.2}
-\contentsline {section}{\numberline {4.2}PCA point/normals/deform}{11}{section.4.2}
-\contentsline {section}{\numberline {4.3}Learning mapping}{11}{section.4.3}
-\contentsline {section}{\numberline {4.4}Data MH vs NRICP}{11}{section.4.4}
-\contentsline {section}{\numberline {4.5}Data Real vs NRICP}{11}{section.4.5}
-\contentsline {chapter}{\numberline {5}Conclusion and Outlook}{13}{chapter.5}
-\contentsline {chapter}{Bibliography}{14}{chapter.5}
+\contentsline {subsubsection}{Random Forest}{10}{section*.11}
+\contentsline {subsubsection}{Multilayer Perceptron}{11}{section*.12}
+\contentsline {section}{\numberline {3.4}Parametric Model from Editor}{11}{section.3.4}
+\contentsline {section}{\numberline {3.5}Evaluation}{11}{section.3.5}
+\contentsline {subsection}{\numberline {3.5.1}Mesh Point Error}{11}{subsection.3.5.1}
+\contentsline {subsection}{\numberline {3.5.2}Fit to Pointcloud}{11}{subsection.3.5.2}
+\contentsline {chapter}{\numberline {4}Results}{13}{chapter.4}
+\contentsline {section}{\numberline {4.1}Error Metrics}{13}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Distance Point}{13}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Face orientations}{13}{subsection.4.1.2}
+\contentsline {section}{\numberline {4.2}PCA point/normals/deform}{13}{section.4.2}
+\contentsline {section}{\numberline {4.3}Learning mapping}{13}{section.4.3}
+\contentsline {section}{\numberline {4.4}Data MH vs NRICP}{13}{section.4.4}
+\contentsline {section}{\numberline {4.5}Data Real vs NRICP}{13}{section.4.5}
+\contentsline {chapter}{\numberline {5}Conclusion and Outlook}{15}{chapter.5}
+\contentsline {chapter}{Bibliography}{16}{chapter.5}

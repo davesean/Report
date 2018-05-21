@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2011.6.14)  17 MAY 2018 17:28
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2011.6.14)  21 MAY 2018 22:10
 entering extended mode
 **C:/Users/haldavid/Desktop/Report/thesis.tex
 (C:/Users/haldavid/Desktop/Report/thesis.tex
@@ -713,7 +713,7 @@ Overfull \vbox (459.06232pt too high) has occurred while \output is active []
 [5]
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/phv/b/n' tried instead on input line 11.
- <figures/alignment.png, id=267, 1445.4pt x 815.29594pt>
+ <figures/alignment.png, id=275, 1445.4pt x 815.29594pt>
 File: figures/alignment.png Graphic file (type png)
 
 <use figures/alignment.png>
@@ -725,17 +725,50 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/sl' in size <10.95> not available
 Underfull \vbox (badness 1629) has occurred while \output is active []
 
  [6 <C:/Users/haldavid/Desktop/Report/figures/alignment.png (PNG copy)>] [7]
-<figures/normal.png, id=294, 541.27219pt x 586.44093pt>
+<figures/normal.png, id=302, 541.27219pt x 586.44093pt>
 File: figures/normal.png Graphic file (type png)
 
 <use figures/normal.png>
 Package pdftex.def Info: figures/normal.png used on input line 73.
 (pdftex.def)             Requested size: 113.8253pt x 123.31729pt.
- [8 <C:/Users/haldavid/Desktop/Report/figures/normal.png>])
-Underfull \vbox (badness 5490) has occurred while \output is active []
+ [8 <C:/Users/haldavid/Desktop/Report/figures/normal.png>] <figures/linReg.png,
+ id=320, 421.575pt x 316.18124pt>
+File: figures/linReg.png Graphic file (type png)
 
- [9]
-[10] (C:\Users\haldavid\Desktop\Report\ch04-results-conclusion.tex
+<use figures/linReg.png>
+Package pdftex.def Info: figures/linReg.png used on input line 135.
+(pdftex.def)             Requested size: 227.6506pt x 170.74014pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[9] <figures/dtdiag.png, id=330, 1043.39813pt x 438.13687pt>
+File: figures/dtdiag.png Graphic file (type png)
+
+<use figures/dtdiag.png>
+Package pdftex.def Info: figures/dtdiag.png used on input line 148.
+(pdftex.def)             Requested size: 341.4759pt x 143.38892pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \vbox (badness 6792) has occurred while \output is active []
+
+ [10 <C:/Users/haldavid/Desktop/Report/figures/linReg.png (PNG copy)>]
+<figures/mlpdiag.png, id=339, 554.07pt x 670.00313pt>
+File: figures/mlpdiag.png Graphic file (type png)
+
+<use figures/mlpdiag.png>
+Package pdftex.def Info: figures/mlpdiag.png used on input line 161.
+(pdftex.def)             Requested size: 227.6506pt x 275.2858pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+) [11 <C:/Users/haldavid/Desktop/Report/figures/dtdiag.png>] [12 <C:/Users/hald
+avid/Desktop/Report/figures/mlpdiag.png>]
+(C:\Users\haldavid\Desktop\Report\ch04-results-conclusion.tex
 Chapter 4.
 
 Overfull \hbox (2.28004pt too wide) has occurred while \output is active
@@ -746,12 +779,12 @@ Overfull \hbox (2.28004pt too wide) has occurred while \output is active
 Overfull \vbox (459.06232pt too high) has occurred while \output is active []
 
 
-[11
+[13
 
 
 
 
-] [12
+] [14
 
 
 ]
@@ -765,7 +798,7 @@ Overfull \hbox (2.28004pt too wide) has occurred while \output is active
 Overfull \vbox (459.06232pt too high) has occurred while \output is active []
 
 
-[13] (C:\Users\haldavid\Desktop\Report\thesis.bbl [14
+[15] (C:\Users\haldavid\Desktop\Report\thesis.bbl [16
 
 
 
@@ -773,7 +806,7 @@ Overfull \vbox (459.06232pt too high) has occurred while \output is active []
 
 ])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 196.
- [15]
+ [17]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 196.
 
 (C:\Users\haldavid\Desktop\Report\thesis.aux
@@ -785,17 +818,17 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 196.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 196.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 196.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 1A63BF16BB2D10687957D5ADF2592CE5;1956.
+(rerunfilecheck)             Checksum: EFFBEB77AB6B5C933E7C7F2051BA0F22;1959.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 196.
  ) 
 Here is how much of TeX's memory you used:
- 10332 strings out of 494049
- 154652 string characters out of 3148531
+ 10356 strings out of 494049
+ 155070 string characters out of 3148531
  272659 words of memory out of 3000000
- 13317 multiletter control sequences out of 15000+200000
+ 13333 multiletter control sequences out of 15000+200000
  66830 words of font info for 82 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 43i,28n,51p,1329b,472s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 43i,28n,51p,1390b,472s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Progra
 m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program 
 Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Program Fil
@@ -812,9 +845,9 @@ s/type1/urw/helvetic/uhvr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/
 urw/times/utmb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/u
 tmr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><
 C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on thesis.pdf (27 pages, 565285 bytes).
+Output written on thesis.pdf (29 pages, 685409 bytes).
 PDF statistics:
- 419 PDF objects out of 1000 (max. 8388607)
- 84 named destinations out of 1000 (max. 500000)
- 273 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 445 PDF objects out of 1000 (max. 8388607)
+ 89 named destinations out of 1000 (max. 500000)
+ 288 words of extra memory for PDF output out of 10000 (max. 10000000)
 

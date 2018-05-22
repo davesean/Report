@@ -9,6 +9,7 @@ In a next step these image sequences needed to be transformed into point clouds.
 The mapping required to have one set of point clouds of \textit{before} examples and the corresponding\footnote{Corresponding meaning, based on the same subject.} \textit{after} examples. Therefore the data was split into sets of \textit{before} and after point clouds. Additionally, to create a better mapping, only the \textit{after} examples that were labelled "350" were included. This resulted in 57 examples in the \textit{before} and 57 in the \textit{after} set. All of these point clouds were further processed in a MATLAB implementation by Biland \cite{Biland17} to generate mesh files.
 
 \subsection{Alignment}
+\label{align}
 Eventhough the meshes were aligned in the MATLAB implementation by Biland \cite{Biland17} in a general fashion, each corresponding \textit{before} and \textit{after} should be pairwise aligned to avoid that the mapping also learns rotations. This was achieved by using an implementation of Horn's method \cite{horn1987closed}. Given two sets of vertices, Horn's method computes the translation, rotation and possibly scale change from one set to the other. As it is expected that for the same subject, only points defining the breasts should vary from before to after, only a subset of vertices should be used. The points used in the alignment can be seen in figure \ref{fig:alignment}.
 
 \begin{figure}[h]
@@ -63,6 +64,7 @@ where coefficient $c_i$ is the $i$-th principle component and score $s_i$ is the
 
 In this example the parametric model is based on the vertices of the mesh. In the next subsections, two other variants are explored and explained.
 \subsection{Face Deformations}
+\label{faceDeform}
 Instead of defining a mesh by its vertices, it is possible to describe it by the deformations of the faces. This is done by defining one source mesh and computing how each face is deformed. One way to quantify a deformation of a face was described by Sumner \cite{sumner2004deformation}, where the idea was to transfer triangle deformations between similar meshes. First, a new vertex needs to be computed such that an affine transformation can be determined. The fourth vertex is defined as follows:
 \begin{gather}
   \mathbf{v_4} = \mathbf{v_1} + (\mathbf{v_2} - \mathbf{v_1})\cross(\mathbf{v_3}-\mathbf{v_1})/\sqrt{\lvert(\mathbf{v_2}-\mathbf{v_1})\cross(\mathbf{v_3}-\mathbf{v_1})\rvert} \label{normalequation}
@@ -75,7 +77,7 @@ Instead of defining a mesh by its vertices, it is possible to describe it by the
 \label{fig:normal}
 \end{figure}
 
-See figure \ref{fig:normal} for a visualization of adding a vertex on the normal.
+The crossproduct is scaled by the reciprocal of the square root of its length, to keep the distance proportional to the length of the traingle edges. See figure \ref{fig:normal} for a visualization of adding a vertex on the normal.
 Given both faces with one additional vertex, the following equations can be posed:
 \begin{gather}
  \mathbf{Q}\mathbf{v_i}+\mathbf{d} = \mathbf{\tilde{v}_i}, \mathbf{i} \in \mathbf{1} \dotsc \mathbf{4}
@@ -101,7 +103,7 @@ To fully describe a mesh, this $\mathbf{Q}$ matrix needs to be computed for each
 This method is very much similar to one described in section \ref{paramModel}. In addition to the vertices of the mesh, one vertex per face is computed as described in equation \ref{normalequation} and added to the list of vertices of the mesh. Therefore the mesh matrix will be of form $\mathbb{R}^{k+h \times 3}$ where $\mathbf{k}$ is the number of original vertices and $\mathbf{h}$ is the number of faces of the mesh.
 
 \section{Mapping}
-The following segment describes how a mapping can be computed in a linear or a non-linear way. The data available is the parameters returned from the both parametric models for the before and after examples. The matrices of the data are
+The following segment describes how a mapping can be computed in a linear or a non-linear way. The data available is the parameters returned by both the parametric models for the before and after examples. The matrices of the data are
 \begin{gather}
   \mathbf{P_{before}} =
   \begin{bmatrix}
@@ -126,7 +128,7 @@ where each parameter pair $(\mathbf{p_{b,i}}, \mathbf{p_{a,i}})\ \forall i$ is r
 The first method used, was the linear system solver by MATLAB (also known as backslash \ solver) that solved the equation
 \begin{gather}
   \mathbf{P_{before}} \cdot \mathbf{M_{linear}} = \mathbf{P_{after}}
-  \text{where} M_{linear} \in \mathbb{R}^{n-1 \times n-1}.
+  \text{ where } M_{linear} \in \mathbb{R}^{n-1 \times n-1}.
 \end{gather}
 It is clear that an explicit linear transformation could be found for each parameter pair, but the goal is to have one mapping that works for each parameter pair. This is also known as linear regression. One basic example in linear regression is the task of fitting a line to a point cloud. As all the points of the point cloud do not lie on one line, it isn't possible to define a straight line. Therefore a line is sought after, such that all points are as close as possible on average. This is depicted in figure \ref{fig:linReg}.
 
@@ -138,10 +140,12 @@ It is clear that an explicit linear transformation could be found for each param
 \end{figure}
 
 \subsection{Non-Linear Variants}
-This section deals with non-linear methods to solve the regression problem described above. All the methods used are part of the scikit-learn library \cite{scikit-learn}. It is common in a machine learning setting to split data into two sets. One set is used to train the model and the other is used to evaluate how well the method does on data, that was not part of the first set. Both data sets should be drawn from the same distribution. This is necessary because the model shouldn't be penalized for performing badly on problems it didn't encounter in the training phase. During the training phase it is standard to run grid search. Grid search varies the parameters of the model to find the best set of parameters for a specific task. It needs to be considered that grid search can lead to overfitting, this occurs when the error on the training set is reduced at the cost of increasing the test error. This can be avoided by adding regularization terms or by running grid search along with cross-validation.
+This section deals with non-linear methods to solve the regression problem described above. All the methods used are part of the scikit-learn library \cite{scikit-learn}. It is common in a machine learning setting to split data into two sets. One set is used to train the model and the other is used to evaluate how well the method does on data, that was not part of the first set. Both data sets should be drawn from the same distribution. This is necessary because the model shouldn't be penalized for performing badly on problems it didn't encounter in the training phase.\\
+During the training phase it is standard to run grid search. Grid search varies the parameters of the model to find the best set of parameters for a specific task. It needs to be considered that grid search can lead to overfitting, this occurs when the error on the training set is reduced at the cost of increasing the test error. This can be avoided by adding regularization terms or by running grid search along with cross-validation.
 \subsubsection{Decision Tree}
 \label{sec:dt}
-One category of machine learning approaches is based on so called decision trees (DT). A decision tree uses a tree-like approach, where nodes of the tree are defined to split the data set into subsets corresponding to groups. As an example, the goal is to have a model that can predict the weight of a person, based on height, daily activity and daily calorie intake as features. Using a decision tree, the value of height could split the data set, as taller people tend to be heavier than small people. This is done over all features until the complete data set is divided into smaller subsets. Leafs make up the end of a decision tree. Each leaf has a certain value connected to it, in the case mentioned before it would be a certain weight range or value. When the weight of a new person would need to be predicted, one would follow the tree from top to bottom until a leaf was met. The corresponding weight value of the leaf would be equal to the prediction the model returns. An example of a decision tree can be seen in figure \ref{fig:dtdiag}.
+One category of machine learning approaches is based on so called decision trees (DT). A decision tree uses a tree-like approach, where nodes of the tree are defined to split the data set into subsets corresponding to groups. As an example, the goal is to have a model that can predict the weight of a person, based on height, daily activity and daily calorie intake as features. Using a decision tree, the value of height could split the data set, as taller people tend to be heavier than small people. This is done over all features until the complete data set is divided into smaller subsets. Leafs make up the end of a decision tree. Each leaf has a certain value connected to it, in the case mentioned before it would be a certain weight range or value. \\
+When the weight of a new person would need to be predicted, one would follow the tree from top to bottom until a leaf was met. The corresponding weight value of the leaf would be equal to the prediction the model returns. An example of a decision tree can be seen in figure \ref{fig:dtdiag}.
 
 \begin{figure}[h]
 \centering
@@ -154,7 +158,8 @@ One category of machine learning approaches is based on so called decision trees
 The random forest (RF) regressor is also a tree-like approach similar to the decision tree. The main difference is that the decision tree considers all features when splitting and thus can be prone to overfitting. Random forest chooses features at random and builds decision trees based on those features. This is done for multiple trees until all subtrees are combined.
 
 \subsubsection{Multilayer Perceptron}
-The multilayer perceptron (MLP) is a type of neural network. It uses a feedforward approach to propagate information through the network. MLP have at least three layers where the first layer is the input layer and the last layer is the output layer. Each layer is made up of neurons, that receive information from the previous layer, apply some operation followed by an activation function and pass the result on to the next layer. These activations can either be linear or non-linear. It doesn't make sense to have multiple intermediate layers with linear activation functions, as each linear combination of linear functions, can be described one other linear function. Each layer is made up of multiple neurons, each with their own weights and biases, and an activation function. All weights and biases are initialized at random. In the training phase a technique known as backpropagation is applied. Given an example, input and outcome, the input data is passed through all the layers. The resulting output is compared to the actual outcome. Given the difference between the two values, weights and biases are modified to reduce the difference, starting from the output layer, moving back through the hidden layers up to the input layer. A basic scheme of a MLP is shown in figure \ref{fig:mlpdiag}.
+The multilayer perceptron (MLP) is a type of neural network. It uses a feedforward approach to propagate information through the network. MLP have at least three layers where the first layer is the input layer and the last layer is the output layer. Each layer is made up of neurons, that receive information from the previous layer, apply some operation followed by an activation function and pass the result on to the next layer. These activations can either be linear or non-linear. It doesn't make sense to have multiple intermediate layers with linear activation functions, as each linear combination of linear functions, can be described one other linear function. \\
+Each layer is made up of multiple neurons, each with their own weights and biases, and an activation function. All weights and biases are initialized at random. In the training phase a technique known as backpropagation is applied. Given an example, input and outcome, the input data is passed through all the layers. The resulting output is compared to the actual outcome. Given the difference between the two values, weights and biases are modified to reduce the difference, starting from the output layer, moving back through the hidden layers up to the input layer. A basic scheme of a MLP is shown in figure \ref{fig:mlpdiag}.
 
 \begin{figure}[h]
 \centering
@@ -165,7 +170,8 @@ The multilayer perceptron (MLP) is a type of neural network. It uses a feedforwa
 
 
 \section{Parametric Model from Editor}
-In all of the previous sections the parametric model was based off of real world data. In this section the same procedure is done as in section \ref{paramModel}, except that the meshes used for PCA were generated by software called MakeHuman \footnote{http://www.makehumancommunity.org/}. MakeHuman is a free and open source character modelling tool. It starts out with a gender neutral base mesh that can be modelled by varying sliders. These sliders apply linear interpolations to the base mesh between the extreme positions. There are over 40 sliders in MakeHuman and the sliders are categorized by what areas of the body they modify. The graphical user interface of MakeHuman can be seen in figure \ref{fig:mhgui}. Using the scripting feature in MakeHuman multiple meshes could be generated, exported and later imported into MATLAB.
+In all of the previous sections the parametric model was based off of real world data. In this section the same procedure is done as in section \ref{paramModel}, except that the meshes used for PCA were generated by software called MakeHuman \footnote{http://www.makehumancommunity.org/}. MakeHuman is a free and open source character modelling tool. It starts out with a gender neutral base mesh that can be modelled by varying sliders. These sliders apply linear interpolations to the base mesh between the extreme positions.\\
+There are over 40 sliders in MakeHuman and the sliders are categorized by what areas of the body they modify. The graphical user interface of MakeHuman can be seen in figure \ref{fig:mhgui}. Using the scripting feature in MakeHuman multiple meshes could be generated, exported and later imported into MATLAB.
 
 \begin{figure}[h]
 \centering

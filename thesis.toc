@@ -17,18 +17,16 @@
 \contentsline {subsubsection}{Decision Tree}{10}{section*.9}
 \contentsline {subsubsection}{Random Forest}{10}{section*.11}
 \contentsline {subsubsection}{Multilayer Perceptron}{11}{section*.12}
-\contentsline {section}{\numberline {3.4}Parametric Model from Editor}{12}{section.3.4}
+\contentsline {section}{\numberline {3.4}Parametric Model from Editor}{11}{section.3.4}
 \contentsline {section}{\numberline {3.5}Fitting parametric models to point clouds}{12}{section.3.5}
 \contentsline {chapter}{\numberline {4}Results}{15}{chapter.4}
 \contentsline {section}{\numberline {4.1}Error Metrics}{15}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Distance Point}{15}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}Face orientations}{15}{subsection.4.1.2}
-\contentsline {section}{\numberline {4.2}Evaluation}{15}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Mesh Point Error}{15}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}Fit to Pointcloud}{15}{subsection.4.2.2}
-\contentsline {section}{\numberline {4.3}PCA point/normals/deform}{15}{section.4.3}
-\contentsline {section}{\numberline {4.4}Learning mapping}{15}{section.4.4}
-\contentsline {section}{\numberline {4.5}Data MH vs NRICP}{15}{section.4.5}
-\contentsline {section}{\numberline {4.6}Data Real vs NRICP}{15}{section.4.6}
+\contentsline {section}{\numberline {4.2}Evaluation}{16}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Mesh Point Error}{16}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Fit to Pointcloud}{16}{subsection.4.2.2}
+\contentsline {section}{\numberline {4.3}PCA point/normals/deform}{16}{section.4.3}
+\contentsline {section}{\numberline {4.4}Learning mapping}{16}{section.4.4}
+\contentsline {section}{\numberline {4.5}Data MH vs NRICP}{16}{section.4.5}
+\contentsline {section}{\numberline {4.6}Data Real vs NRICP}{16}{section.4.6}
 \contentsline {chapter}{\numberline {5}Conclusion and Outlook}{17}{chapter.5}
 \contentsline {chapter}{Bibliography}{18}{chapter.5}

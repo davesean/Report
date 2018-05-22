@@ -18,14 +18,12 @@
 \BOOKMARK [1][]{section.3.5}{3.5 Fitting parametric models to point clouds}{chapter.3}% 18
 \BOOKMARK [0][]{chapter.4}{4 Results}{}% 19
 \BOOKMARK [1][]{section.4.1}{4.1 Error Metrics}{chapter.4}% 20
-\BOOKMARK [2][]{subsection.4.1.1}{4.1.1 Distance Point}{section.4.1}% 21
-\BOOKMARK [2][]{subsection.4.1.2}{4.1.2 Face orientations}{section.4.1}% 22
-\BOOKMARK [1][]{section.4.2}{4.2 Evaluation}{chapter.4}% 23
-\BOOKMARK [2][]{subsection.4.2.1}{4.2.1 Mesh Point Error}{section.4.2}% 24
-\BOOKMARK [2][]{subsection.4.2.2}{4.2.2 Fit to Pointcloud}{section.4.2}% 25
-\BOOKMARK [1][]{section.4.3}{4.3 PCA point/normals/deform}{chapter.4}% 26
-\BOOKMARK [1][]{section.4.4}{4.4 Learning mapping}{chapter.4}% 27
-\BOOKMARK [1][]{section.4.5}{4.5 Data MH vs NRICP}{chapter.4}% 28
-\BOOKMARK [1][]{section.4.6}{4.6 Data Real vs NRICP}{chapter.4}% 29
-\BOOKMARK [0][]{chapter.5}{5 Conclusion and Outlook}{}% 30
-\BOOKMARK [0][]{chapter.5}{Bibliography}{}% 31
+\BOOKMARK [1][]{section.4.2}{4.2 Evaluation}{chapter.4}% 21
+\BOOKMARK [2][]{subsection.4.2.1}{4.2.1 Mesh Point Error}{section.4.2}% 22
+\BOOKMARK [2][]{subsection.4.2.2}{4.2.2 Fit to Pointcloud}{section.4.2}% 23
+\BOOKMARK [1][]{section.4.3}{4.3 PCA point/normals/deform}{chapter.4}% 24
+\BOOKMARK [1][]{section.4.4}{4.4 Learning mapping}{chapter.4}% 25
+\BOOKMARK [1][]{section.4.5}{4.5 Data MH vs NRICP}{chapter.4}% 26
+\BOOKMARK [1][]{section.4.6}{4.6 Data Real vs NRICP}{chapter.4}% 27
+\BOOKMARK [0][]{chapter.5}{5 Conclusion and Outlook}{}% 28
+\BOOKMARK [0][]{chapter.5}{Bibliography}{}% 29

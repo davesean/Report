@@ -1,6 +1,11 @@
 \newcommand{\etalchar}[1]{$^{#1}$}
 \begin{thebibliography}{PVG{\etalchar{+}}11}
 
+\bibitem[AMO]{ceres-solver}
+Sameer Agarwal, Keir Mierle, and Others.
+\newblock Ceres solver.
+\newblock \url{http://ceres-solver.org}.
+
 \bibitem[Bil17]{Biland17}
 S.~Biland.
 \newblock Anatomically based body part modelling and fitting, 2017.

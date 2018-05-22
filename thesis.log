@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2011.6.14)  21 MAY 2018 22:10
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2011.6.14)  22 MAY 2018 15:11
 entering extended mode
 **C:/Users/haldavid/Desktop/Report/thesis.tex
 (C:/Users/haldavid/Desktop/Report/thesis.tex
@@ -568,14 +568,14 @@ File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <24.88> not available
 (Font)              Font shape `T1/phv/b/n' tried instead on input line 120.
 
-<figures/ETH_logo.pdf, id=122, 8816.1872pt x 2366.8425pt>
+<figures/ETH_logo.pdf, id=126, 8816.1872pt x 2366.8425pt>
 File: figures/ETH_logo.pdf Graphic file (type pdf)
 
 <use figures/ETH_logo.pdf>
 Package pdftex.def Info: figures/ETH_logo.pdf used on input line 134.
 (pdftex.def)             Requested size: 136.59175pt x 36.65678pt.
 
-<figures/CGL_logo.pdf, id=124, 426.7935pt x 142.26149pt>
+<figures/CGL_logo.pdf, id=128, 426.7935pt x 142.26149pt>
 File: figures/CGL_logo.pdf Graphic file (type pdf)
 
 <use figures/CGL_logo.pdf>
@@ -620,18 +620,15 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 
 
 
-] (C:\Users\haldavid\Desktop\Report\thesis.toc
-Underfull \vbox (badness 3919) has occurred while \output is active []
-
- [5
+] (C:\Users\haldavid\Desktop\Report\thesis.toc [5
 
 
 
 
 ])
 \tf@toc=\write4
-
-[6] (C:\Users\haldavid\Desktop\Report\thesis.lof)
+ [6]
+(C:\Users\haldavid\Desktop\Report\thesis.lof)
 \tf@lof=\write5
  [7
 
@@ -713,7 +710,7 @@ Overfull \vbox (459.06232pt too high) has occurred while \output is active []
 [5]
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/phv/b/n' tried instead on input line 11.
- <figures/alignment.png, id=275, 1445.4pt x 815.29594pt>
+ <figures/alignment.png, id=282, 1445.4pt x 815.29594pt>
 File: figures/alignment.png Graphic file (type png)
 
 <use figures/alignment.png>
@@ -725,24 +722,24 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/sl' in size <10.95> not available
 Underfull \vbox (badness 1629) has occurred while \output is active []
 
  [6 <C:/Users/haldavid/Desktop/Report/figures/alignment.png (PNG copy)>] [7]
-<figures/normal.png, id=302, 541.27219pt x 586.44093pt>
+<figures/normal.png, id=309, 627.09282pt x 527.72156pt>
 File: figures/normal.png Graphic file (type png)
 
 <use figures/normal.png>
 Package pdftex.def Info: figures/normal.png used on input line 73.
-(pdftex.def)             Requested size: 113.8253pt x 123.31729pt.
+(pdftex.def)             Requested size: 182.11769pt x 153.2608pt.
  [8 <C:/Users/haldavid/Desktop/Report/figures/normal.png>] <figures/linReg.png,
- id=320, 421.575pt x 316.18124pt>
+ id=327, 421.575pt x 316.18124pt>
 File: figures/linReg.png Graphic file (type png)
 
 <use figures/linReg.png>
 Package pdftex.def Info: figures/linReg.png used on input line 135.
-(pdftex.def)             Requested size: 227.6506pt x 170.74014pt.
+(pdftex.def)             Requested size: 318.70944pt x 239.03621pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[9] <figures/dtdiag.png, id=330, 1043.39813pt x 438.13687pt>
+[9] <figures/dtdiag.png, id=337, 1043.39813pt x 438.13687pt>
 File: figures/dtdiag.png Graphic file (type png)
 
 <use figures/dtdiag.png>
@@ -752,23 +749,27 @@ Package pdftex.def Info: figures/dtdiag.png used on input line 148.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-
-Underfull \vbox (badness 6792) has occurred while \output is active []
-
- [10 <C:/Users/haldavid/Desktop/Report/figures/linReg.png (PNG copy)>]
-<figures/mlpdiag.png, id=339, 554.07pt x 670.00313pt>
+[10 <C:/Users/haldavid/Desktop/Report/figures/linReg.png (PNG copy)>]
+<figures/mlpdiag.png, id=346, 554.07pt x 670.00313pt>
 File: figures/mlpdiag.png Graphic file (type png)
 
 <use figures/mlpdiag.png>
 Package pdftex.def Info: figures/mlpdiag.png used on input line 161.
-(pdftex.def)             Requested size: 227.6506pt x 275.2858pt.
+(pdftex.def)             Requested size: 136.59175pt x 165.16943pt.
+ [11 <C:/Users/haldavid/Desktop/Report/figures/dtdiag.png> <C:/Users/haldavid/D
+esktop/Report/figures/mlpdiag.png>]
+<figures/mhgui.png, id=357, 771.63281pt x 573.64313pt>
+File: figures/mhgui.png Graphic file (type png)
+ <use figures/mhgui.png>
+Package pdftex.def Info: figures/mhgui.png used on input line 172.
+(pdftex.def)             Requested size: 455.30121pt x 338.47276pt.
+) [12 <C:/Users/haldavid/Desktop/Report/figures/mhgui.png>] [13]
+(C:\Users\haldavid\Desktop\Report\ch04-results-conclusion.tex [14
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
 
-) [11 <C:/Users/haldavid/Desktop/Report/figures/dtdiag.png>] [12 <C:/Users/hald
-avid/Desktop/Report/figures/mlpdiag.png>]
-(C:\Users\haldavid\Desktop\Report\ch04-results-conclusion.tex
+
+]
 Chapter 4.
 
 Overfull \hbox (2.28004pt too wide) has occurred while \output is active
@@ -779,12 +780,7 @@ Overfull \hbox (2.28004pt too wide) has occurred while \output is active
 Overfull \vbox (459.06232pt too high) has occurred while \output is active []
 
 
-[13
-
-
-
-
-] [14
+[15] [16
 
 
 ]
@@ -798,18 +794,28 @@ Overfull \hbox (2.28004pt too wide) has occurred while \output is active
 Overfull \vbox (459.06232pt too high) has occurred while \output is active []
 
 
-[15] (C:\Users\haldavid\Desktop\Report\thesis.bbl [16
+[17] (C:\Users\haldavid\Desktop\Report\thesis.bbl [18
 
 
 
 
 
-])
+]
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 7.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex/latex\psnfss\t1pcr.fd"
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+)
+Underfull \hbox (badness 3250) in paragraph at lines 5--8
+[]\T1/ptm/m/n/12 Sameer Agar-wal, Keir Mierle, and Oth-ers.  Ceres solver.  [][
+]$\T1/pcr/m/n/12 http : / /$
+ []
+
+)
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 196.
- [17]
+ [19]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 196.
-
-(C:\Users\haldavid\Desktop\Report\thesis.aux
+ (C:\Users\haldavid\Desktop\Report\thesis.aux
 (C:\Users\haldavid\Desktop\Report\abstract.aux)
 (C:\Users\haldavid\Desktop\Report\ch01-introduction.aux)
 (C:\Users\haldavid\Desktop\Report\ch02-related-work.aux)
@@ -818,15 +824,15 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 196.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 196.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 196.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: EFFBEB77AB6B5C933E7C7F2051BA0F22;1959.
+(rerunfilecheck)             Checksum: EA9F575BBAC7BCED49A728E85B0C3DC2;2051.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 196.
  ) 
 Here is how much of TeX's memory you used:
- 10356 strings out of 494049
- 155070 string characters out of 3148531
+ 10410 strings out of 494049
+ 155815 string characters out of 3148531
  272659 words of memory out of 3000000
- 13333 multiletter control sequences out of 15000+200000
- 66830 words of font info for 82 fonts, out of 3000000 for 9000
+ 13372 multiletter control sequences out of 15000+200000
+ 68378 words of font info for 87 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
  43i,28n,51p,1390b,472s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Progra
@@ -840,14 +846,15 @@ iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files (x86)/MiKTe
 X 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 
 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files (x86)/MiKTeX 2.9
 /fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Program Files (x86)/MiKTeX 
-2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/font
-s/type1/urw/helvetic/uhvr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/
-urw/times/utmb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/u
-tmr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><
-C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on thesis.pdf (29 pages, 685409 bytes).
+2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts
+/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/u
+rw/helvetic/uhvr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times
+/utmb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb
+><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Progra
+m Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on thesis.pdf (31 pages, 795359 bytes).
 PDF statistics:
- 445 PDF objects out of 1000 (max. 8388607)
- 89 named destinations out of 1000 (max. 500000)
- 288 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 477 PDF objects out of 1000 (max. 8388607)
+ 95 named destinations out of 1000 (max. 500000)
+ 301 words of extra memory for PDF output out of 10000 (max. 10000000)
 

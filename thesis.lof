@@ -9,4 +9,5 @@
 \contentsline {figure}{\numberline {\relax 3.6}{\ignorespaces Graphical user interface of MakeHuman.\relax }}{13}{figure.caption.14}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {\relax 4.1}{\ignorespaces The left image depicts distances between corresponding points of the mesh. The right image shows a representation of the information used to compute the $\mathbf {Q}$ matrix.\relax }}{16}{figure.caption.15}
+\contentsline {figure}{\numberline {\relax 4.2}{\ignorespaces The left image shows the error heat map when using the point method. The middle one uses the deformation method. The right one uses point and normals. The color of each point reflects the amount of the error. Red color indicates large error, blue small error.\relax }}{18}{figure.caption.17}
 \addvspace {10\p@ }

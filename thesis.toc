@@ -23,10 +23,19 @@
 \contentsline {section}{\numberline {4.1}Error Metrics}{15}{section.4.1}
 \contentsline {section}{\numberline {4.2}Evaluation}{16}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}Mesh Point Error}{16}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}Fit to Pointcloud}{16}{subsection.4.2.2}
-\contentsline {section}{\numberline {4.3}PCA point/normals/deform}{16}{section.4.3}
-\contentsline {section}{\numberline {4.4}Learning mapping}{16}{section.4.4}
-\contentsline {section}{\numberline {4.5}Data MH vs NRICP}{16}{section.4.5}
-\contentsline {section}{\numberline {4.6}Data Real vs NRICP}{16}{section.4.6}
-\contentsline {chapter}{\numberline {5}Conclusion and Outlook}{17}{chapter.5}
-\contentsline {chapter}{Bibliography}{18}{chapter.5}
+\contentsline {subsection}{\numberline {4.2.2}Error Heat Map}{17}{subsection.4.2.2}
+\contentsline {section}{\numberline {4.3}Input Data for PCA}{17}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Problem Setting}{17}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Results}{17}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}Discussion}{19}{subsection.4.3.3}
+\contentsline {section}{\numberline {4.4}Learning Mapping}{19}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Problem Setting}{19}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}Results}{19}{subsection.4.4.2}
+\contentsline {subsection}{\numberline {4.4.3}Discussion}{19}{subsection.4.4.3}
+\contentsline {section}{\numberline {4.5}Parametric Models}{19}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}Problem Setting}{19}{subsection.4.5.1}
+\contentsline {subsection}{\numberline {4.5.2}Results}{19}{subsection.4.5.2}
+\contentsline {subsection}{\numberline {4.5.3}Discussion}{19}{subsection.4.5.3}
+\contentsline {chapter}{\numberline {5}Conclusion}{21}{chapter.5}
+\contentsline {section}{\numberline {5.1}Outlook}{21}{section.5.1}
+\contentsline {chapter}{Bibliography}{22}{section.5.1}

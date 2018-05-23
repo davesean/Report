@@ -20,10 +20,19 @@
 \BOOKMARK [1][]{section.4.1}{4.1 Error Metrics}{chapter.4}% 20
 \BOOKMARK [1][]{section.4.2}{4.2 Evaluation}{chapter.4}% 21
 \BOOKMARK [2][]{subsection.4.2.1}{4.2.1 Mesh Point Error}{section.4.2}% 22
-\BOOKMARK [2][]{subsection.4.2.2}{4.2.2 Fit to Pointcloud}{section.4.2}% 23
-\BOOKMARK [1][]{section.4.3}{4.3 PCA point/normals/deform}{chapter.4}% 24
-\BOOKMARK [1][]{section.4.4}{4.4 Learning mapping}{chapter.4}% 25
-\BOOKMARK [1][]{section.4.5}{4.5 Data MH vs NRICP}{chapter.4}% 26
-\BOOKMARK [1][]{section.4.6}{4.6 Data Real vs NRICP}{chapter.4}% 27
-\BOOKMARK [0][]{chapter.5}{5 Conclusion and Outlook}{}% 28
-\BOOKMARK [0][]{chapter.5}{Bibliography}{}% 29
+\BOOKMARK [2][]{subsection.4.2.2}{4.2.2 Error Heat Map}{section.4.2}% 23
+\BOOKMARK [1][]{section.4.3}{4.3 Input Data for PCA}{chapter.4}% 24
+\BOOKMARK [2][]{subsection.4.3.1}{4.3.1 Problem Setting}{section.4.3}% 25
+\BOOKMARK [2][]{subsection.4.3.2}{4.3.2 Results}{section.4.3}% 26
+\BOOKMARK [2][]{subsection.4.3.3}{4.3.3 Discussion}{section.4.3}% 27
+\BOOKMARK [1][]{section.4.4}{4.4 Learning Mapping}{chapter.4}% 28
+\BOOKMARK [2][]{subsection.4.4.1}{4.4.1 Problem Setting}{section.4.4}% 29
+\BOOKMARK [2][]{subsection.4.4.2}{4.4.2 Results}{section.4.4}% 30
+\BOOKMARK [2][]{subsection.4.4.3}{4.4.3 Discussion}{section.4.4}% 31
+\BOOKMARK [1][]{section.4.5}{4.5 Parametric Models}{chapter.4}% 32
+\BOOKMARK [2][]{subsection.4.5.1}{4.5.1 Problem Setting}{section.4.5}% 33
+\BOOKMARK [2][]{subsection.4.5.2}{4.5.2 Results}{section.4.5}% 34
+\BOOKMARK [2][]{subsection.4.5.3}{4.5.3 Discussion}{section.4.5}% 35
+\BOOKMARK [0][]{chapter.5}{5 Conclusion}{}% 36
+\BOOKMARK [1][]{section.5.1}{5.1 Outlook}{chapter.5}% 37
+\BOOKMARK [0][]{section.5.1}{Bibliography}{}% 38

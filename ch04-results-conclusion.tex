@@ -30,23 +30,65 @@ The methods are depicted in figure \ref{fig:errordiag}. Both methods have their 
 \section{Evaluation}
 In the following section the evaluation methods, that were used, are explained. Optimally, when evaluating a prediction some representation of the true outcome, often called the "ground truth", is given. This is useful to quantify how acurate the prediction was.
 \subsection{Mesh Point Error} % Compare to GT
+\label{mpError}
 For this method the comparison is done as explained in section \ref{Emetrics}. Before evaluating the point distances between a prediction and the ground truth, the meshes are aligned as mentioned in section \ref{align}. Additionally, the mean point distance error is computed by diving by the number of vertices in the mesh and also by diving by the diagonal of the largest bounding box over all examples to scale the error to a meaningful unit. Given a prediction of a mesh $M^{(p)}$ and the ground truth $M^{(g)}$ the problem can be stated as:
 \begin{gather}
 error = \frac{1}{nd_{max}}\sum_{i=1}^{n} \sqrt{\sum_{j=1}^3(M_{i,j}^{(p)} - M_{i,j}^{(g)})^2}
 \end{gather}
 where $n$ is the number of vertices of the mesh, $d_{max}$ is the diagonal length of the largest bounding box over all examples and the final result is a scalar value.
 \subsection{Error Heat Map} % Compare to NRICP vs Ceres
+\label{mhError}
 The idea of this method is to generate a visualization of the error, indicating where the prediction failed to represent the ground truth the most. This can be accomplished by computing the error described in section \ref{Emetrics} but instead of adding up the errors keeping them separate for each vertex. This error per vertex is accumulated over multiple samples. Given the  k-th prediction of a mesh $M^{(p_k)}$ and the corresponding ground truth $M^{(g_k)}$ the problem can be described as:
 \begin{gather}
-e'_{i} = \sum_{k=1}^{m} \sqrt{\sum_{j=1}^3(M_{i,j}^{(p_k)} - M_{i,j}^{(g_k)})^2} \  \forall i=1 \dots n \text{ with } e = \frac{e'}{max(e'_{i}))}
+e'_{i} = \sum_{k=1}^{m} \sqrt{\sum_{j=1}^3(M_{i,j}^{(p_k)} - M_{i,j}^{(g_k)})^2} \  \forall i=1 \dots n \text{ with } e = \frac{e'}{max(e')}
 \end{gather}
-
+where $m$ is the number of samples, $e'$ is a vector of the accumulated errors over all samples and $e$ is a vector of the errors scaled by the largest entry in $e'$. This is done to visualize the error on a range, such that, for example the error can be color coded where red is equivalent to a large error and green is a small error.
+%TODO change colors used for large and small according to colormap used
 \section{Input Data for PCA}
+In this experiment three different variations of data inputs are tested for PCA as described in section \ref{paramModel} and the following two subsections. Based on the resulting parameters of each model, a linear mapping is created and compared based on the error of the predictions.
+
+\subsection{Problem Setting}
+Given a data set comprised of 57 pairs of meshes where one mesh is based on the before point cloud and the other is based on the after point cloud. Both sets are split into equally sized sets of 42 training pairs and 15 testing pairs. Each variation is trained on the training set and afterwards evaluated on the test set. The evaluation is done by computing a linear mapping over the parameters of each model. Then the mean mesh point error over all 15 testing pairs is computed and a error heat map is generated.
+\subsection{Results}
+In the table \ref{tablePDN} the time column is the amount of time each method needed to compute the parameteric model. The training mean error is computed as mentioned in \ref{mpError} for each case. The mean is computed over all cases. The same is done for the test mean error. In each subfigure in figure \ref{fig:PDNheatmap} the values that are listed above are the respective $\mathbf{max(e')}$ as explained in \ref{mhError}. Additionally, one vertex on the border doesn't have a colored point as the error wasn't being computed corretly for it.
+
+\begin{table}[]
+\centering
+\label{tablePDN}
+\begin{tabular}{l|l|l|l|l|}
+\cline{2-5}
+                                                  & \textbf{Time} & \textbf{\begin{tabular}[c]{@{}l@{}}Training\\ Mean Error\end{tabular}} & \multicolumn{2}{l|}{\textbf{\begin{tabular}[c]{@{}l@{}}Test\\ Mean Error\end{tabular}}} \\ \hline
+\multicolumn{1}{|l|}{\textbf{Point}}              & 0.06s         & 0.00733                                                                & \multicolumn{2}{l|}{0.01845}                                                            \\ \hline
+\multicolumn{1}{|l|}{\textbf{Deformation}}        & 6.81s         & 0.0090                                                                 & \multicolumn{2}{l|}{0.02795}                                                            \\ \hline
+\multicolumn{1}{|l|}{\textbf{Points and Normals}} & 2.92s         & 0.0071                                                                 & \multicolumn{2}{l|}{0.01841}                                                            \\ \hline
+\end{tabular}
+\caption{Results in terms of mean mesh point error. Also the time each function took to compute the parametric model.}
+\end{table}
+
+\begin{figure}
+\centering
+\makebox[\textwidth][c]{%
+  \includegraphics[width=1.6\textwidth]{figures/evalPDN}%
+}
+\caption{The left image shows the error heat map when using the point method. The middle one uses the deformation method. The right one uses point and normals. The color of each point reflects the amount of the error. Red color indicates large error, blue small error.}
+\label{fig:PDNheatmap}
+\end{figure}
+
+\subsection{Discussion}
+The amount of time it takes to compute the parameteric model based on deformations takes a lot longer due to the fact that additional normals need to be computed followed by the computation of the $Q$ matrix. One can see that the additional time to compute normals is also reflected in the point and normals method. Therefore roughly $\mathbf{40\%}$ of the time is accounted for by the normal computation.\\
+All three methods worsen going from training to test case, but that is expected. This is caused by the models having seen the training set before and are already familiar with those examples. Of the three methods the points and normals method achieves the best results over test and training. The reason this occurs is due to the fact that the the normals carry some information of the size of the faces.
 
 \section{Learning Mapping}
+\subsection{Problem Setting}
+\subsection{Results}
+\subsection{Discussion}
 
 \section{Parametric Models}
 Given two parametric models and a test set of point clouds, both models process the point clouds as described in section \ref{fitModel}.
+\subsection{Problem Setting}
+\subsection{Results}
+\subsection{Discussion}
 
+\chapter{Conclusion}
 
-\chapter{Conclusion and Outlook}
+\section{Outlook}

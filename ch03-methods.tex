@@ -8,6 +8,8 @@ In a next step these image sequences needed to be transformed into point clouds.
 
 The mapping required to have one set of point clouds of \textit{before} examples and the corresponding\footnote{Corresponding meaning, based on the same subject.} \textit{after} examples. Therefore the data was split into sets of \textit{before} and after point clouds. Additionally, to create a better mapping, only the \textit{after} examples that were labelled "350" were included. This resulted in 57 examples in the \textit{before} and 57 in the \textit{after} set. All of these point clouds were further processed in a MATLAB implementation by Biland \cite{Biland17} to generate mesh files.
 
+%% TODO add table of labels
+
 \subsection{Alignment}
 \label{align}
 Eventhough the meshes were aligned in the MATLAB implementation by Biland \cite{Biland17} in a general fashion, each corresponding \textit{before} and \textit{after} should be pairwise aligned to avoid that the mapping also learns rotations. This was achieved by using an implementation of Horn's method \cite{horn1987closed}. Given two sets of vertices, Horn's method computes the translation, rotation and possibly scale change from one set to the other. As it is expected that for the same subject, only points defining the breasts should vary from before to after, only a subset of vertices should be used. The points used in the alignment can be seen in figure \ref{fig:alignment}.
@@ -65,7 +67,7 @@ where coefficient $c_i$ is the $i$-th principle component and score $s_i$ is the
 In this example the parametric model is based on the vertices of the mesh. In the next subsections, two other variants are explored and explained.
 \subsection{Face Deformations}
 \label{faceDeform}
-Instead of defining a mesh by its vertices, it is possible to describe it by the deformations of the faces. This is done by defining one source mesh and computing how each face is deformed. One way to quantify a deformation of a face was described by Sumner \cite{sumner2004deformation}, where the idea was to transfer triangle deformations between similar meshes. First, a new vertex needs to be computed such that an affine transformation can be determined. The fourth vertex is defined as follows:
+Instead of defining a mesh by its vertices, it is possible to describe it by the deformations of the faces. This is done by defining one source mesh and computing how each face is deformed in relation to the source mesh. One way to quantify a deformation of a face was described by Sumner \cite{sumner2004deformation}, where the idea was to transfer triangle deformations between similar meshes. First, a new vertex needs to be computed such that an affine transformation can be determined. The fourth vertex is defined as follows:
 \begin{gather}
   \mathbf{v_4} = \mathbf{v_1} + (\mathbf{v_2} - \mathbf{v_1})\cross(\mathbf{v_3}-\mathbf{v_1})/\sqrt{\lvert(\mathbf{v_2}-\mathbf{v_1})\cross(\mathbf{v_3}-\mathbf{v_1})\rvert} \label{normalequation}
 \end{gather}

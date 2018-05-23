@@ -9,4 +9,5 @@ Database file #1: graphics.bib
 Warning--entry type for "Biland17" isn't style-file defined
 --line 4640 of file graphics.bib
 Warning--can't use both volume and number fields in sumner2004deformation
-(There were 2 warnings)
+Warning--can't use both volume and number fields in zhou2010parametric
+(There were 3 warnings)

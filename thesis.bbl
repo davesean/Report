@@ -1,5 +1,11 @@
 \newcommand{\etalchar}[1]{$^{#1}$}
-\begin{thebibliography}{PVG{\etalchar{+}}11}
+\begin{thebibliography}{dHCCG{\etalchar{+}}12}
+
+\bibitem[ACP03]{allen2003space}
+Brett Allen, Brian Curless, and Zoran Popovi{\'c}.
+\newblock The space of human body shapes: reconstruction and parameterization
+  from range scans.
+\newblock {\em ACM transactions on graphics (TOG)}, 22(3):587--594, 2003.
 
 \bibitem[AMO]{ceres-solver}
 Sameer Agarwal, Keir Mierle, and Others.
@@ -10,10 +16,30 @@ Sameer Agarwal, Keir Mierle, and Others.
 S.~Biland.
 \newblock Anatomically based body part modelling and fitting, 2017.
 
+\bibitem[dHCCG{\etalchar{+}}12]{de2012development}
+Pablo de~Heras~Ciechomski, Mihai Constantinescu, Jaime Garcia, Radu Olariu,
+  Irving Dindoyal, Serge Le~Huu, and Mauricio Reyes.
+\newblock Development and implementation of a web-enabled 3d consultation tool
+  for breast augmentation surgery based on 3d-image reconstruction of 2d
+  pictures.
+\newblock {\em Journal of medical Internet research}, 14(1), 2012.
+
+\bibitem[GGC10]{gallo2010human}
+Giovanni Gallo, Giuseppe~Claudio Guarnera, and Giuseppe Catanuto.
+\newblock Human breast shape analysis using pca.
+\newblock In {\em BIOSIGNALS}, pages 163--167. Citeseer, 2010.
+
 \bibitem[Hor87]{horn1987closed}
 Berthold~KP Horn.
 \newblock Closed-form solution of absolute orientation using unit quaternions.
 \newblock {\em JOSA A}, 4(4):629--642, 1987.
+
+\bibitem[JLH{\etalchar{+}}98]{jeng1998facial}
+Shi-Hong Jeng, Hong Yuan~Mark Liao, Chin~Chuan Han, Ming~Yang Chern, and
+  Yao~Tsorng Liu.
+\newblock Facial feature detection using geometrical face model: an efficient
+  approach.
+\newblock {\em Pattern recognition}, 31(3):273--282, 1998.
 
 \bibitem[PVG{\etalchar{+}}11]{scikit-learn}
 F.~Pedregosa, G.~Varoquaux, A.~Gramfort, V.~Michel, B.~Thirion, O.~Grisel,
@@ -39,5 +65,11 @@ Johannes~Lutz Sch\"{o}nberger, Enliang Zheng, Marc Pollefeys, and Jan-Michael
   Frahm.
 \newblock Pixelwise view selection for unstructured multi-view stereo.
 \newblock In {\em European Conference on Computer Vision (ECCV)}, 2016.
+
+\bibitem[ZFL{\etalchar{+}}10]{zhou2010parametric}
+Shizhe Zhou, Hongbo Fu, Ligang Liu, Daniel Cohen-Or, and Xiaoguang Han.
+\newblock Parametric reshaping of human bodies in images.
+\newblock In {\em ACM Transactions on Graphics (TOG)}, volume~29, page 126.
+  ACM, 2010.
 
 \end{thebibliography}

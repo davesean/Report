@@ -6,9 +6,20 @@ Optimally it would be necessary to have a large data set of images of women befo
 
 In a next step these image sequences needed to be transformed into point clouds. This was done using a general-purpose Structure-from-Motion (SfM) \cite{schoenberger2016sfm} and Multi-View Stereo (MVS) \cite{schoenberger2016mvs} pipeline called COLMAP. This generated point clouds spanning from 5'000 to 15'000 points. Some of the images needed to be discarded, due to the fact that SfM created a point cloud with less than 1'000 points or the point clouds had holes, such that certain areas had no points and were not defined at all. The remaining point clouds were cleaned using a C++ implementation by Biland \cite{Biland17} that removed white points around the point clouds.
 
-The mapping required to have one set of point clouds of \textit{before} examples and the corresponding\footnote{Corresponding meaning, based on the same subject.} \textit{after} examples. Therefore the data was split into sets of \textit{before} and \textit{after} point clouds. Additionally, to create a better mapping, only the \textit{after} examples that were labelled "350" were included. This resulted in 57 examples in the \textit{before} and 57 in the \textit{after} set. All of these point clouds were further processed in a MATLAB implementation by Biland \cite{Biland17} to generate mesh files.
+The mapping required to have one set of point clouds of \textit{before} examples and the corresponding\footnote{Corresponding meaning, based on the same subject.} \textit{after} examples. Therefore the data was split into sets of \textit{before} and \textit{after} point clouds. As all of the \textit{after} point clouds were based on various breast enhancements, all the corresponding labels of given were processed and analyzed. This resulted in a table of terms sorted by the frequency of the term. The 9 most frequent terms can be found in table \ref{tableTerms}.
 
-%% TODO add table of labels
+\begin{table}[]
+\centering
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+\textbf{Term}      & \textbf{R:} & \textbf{L:} & \textbf{LSC} & \textbf{73} & \textbf{cc} & \textbf{LSA} & \textbf{350} & \textbf{Custom} & \textbf{300} \\ \hline
+\textbf{Frequency} & 205         & 205         & 100          & 85          & 54          & 73           & 73           & 70              & 60           \\ \hline
+\end{tabular}
+\caption[Table of most frequent terms]{The frequency of the top 9 terms can be seen in the upper row. The corresponding frequency is stated below.}
+\label{tableTerms}
+\end{table}
+
+The first few terms are not informative, as they don't describe the breast themselves. The terms "LSC" and "73" are descriptions of a certain implant \footnote{http://www.simplybreastimplants.com/breast\_implant\_sizes/sebbin\_firm\_high\_profile.html} and "cc" is a measure of volume. The first meaningful term is "350", which means that an implant with a volume of 350ml was inserted. Therefore only the \textit{after} examples that were labelled "350" were included, to create a better mapping. After removing some of the point clouds that were not reconstructed well enough, this resulted in 57 examples in the \textit{before} and 57 in the \textit{after} set. All of these point clouds were further processed in a MATLAB implementation by Biland \cite{Biland17} to generate mesh files.
 
 \subsection{Alignment}
 \label{align}
@@ -17,7 +28,7 @@ Eventhough the meshes were aligned in the MATLAB implementation by Biland \cite{
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.75\textwidth]{figures/alignment}
-\caption{The mesh is depicted as the grey surface. The points drawn in green are used for the alignment.}
+\caption[Alignment points visualized]{The mesh is depicted as the grey surface. The points drawn in green are used for the alignment.}
 \label{fig:alignment}
 \end{figure}
 
@@ -75,7 +86,7 @@ Instead of defining a mesh by its vertices, it is possible to describe it by the
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.4\textwidth]{figures/normal}
-\caption{A vertex is added to the triangle that lies in the direction of the normal.}
+\caption[Diagram point on normal]{A vertex is added to the triangle that lies in the direction of the normal.}
 \label{fig:normal}
 \end{figure}
 
@@ -153,7 +164,7 @@ When the weight of a new person would need to be predicted, one would follow the
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.75\textwidth]{figures/dtdiag}
-\caption{Example of a decision tree following example of section \ref{sec:dt}}
+\caption[Diagram of descision tree]{Example of a decision tree following example of section \ref{sec:dt}}
 \label{fig:dtdiag}
 \end{figure}
 

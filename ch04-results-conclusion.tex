@@ -23,7 +23,7 @@ The methods are depicted in figure \ref{fig:errordiag}. Both methods have their 
   \centering
   \includegraphics[width=.75\linewidth]{figures/dediag}
 \end{subfigure}
-\caption{The left image depicts distances between corresponding points of the mesh. The right image shows a representation of the information used to compute the $\mathbf{Q}$ matrix.}
+\caption[Error metric diagrams]{The left image depicts distances between corresponding points of the mesh. The right image shows a representation of the information used to compute the $\mathbf{Q}$ matrix.}
 \label{fig:errordiag}
 \end{figure}
 
@@ -54,7 +54,6 @@ In the table \ref{tablePDN} the time column is the amount of time each method ne
 
 \begin{table}[]
 \centering
-\label{tablePDN}
 \begin{tabular}{l|l|l|l|l|}
 \cline{2-5}
                                                   & \textbf{Time} & \textbf{\begin{tabular}[c]{@{}l@{}}Training\\ Mean Error\end{tabular}} & \multicolumn{2}{l|}{\textbf{\begin{tabular}[c]{@{}l@{}}Test\\ Mean Error\end{tabular}}} \\ \hline
@@ -63,6 +62,7 @@ In the table \ref{tablePDN} the time column is the amount of time each method ne
 \multicolumn{1}{|l|}{\textbf{Points and Normals}} & 2.92s         & 0.0071                                                                 & \multicolumn{2}{l|}{0.01841}                                                            \\ \hline
 \end{tabular}
 \caption[Table of results of Input Data for PCA]{Results in terms of mean mesh point error are listed for the training and for the test set. Also the time each function took to compute the parametric model is listed in seconds.}
+\label{tablePDN}
 \end{table}
 
 \begin{figure}
@@ -70,26 +70,28 @@ In the table \ref{tablePDN} the time column is the amount of time each method ne
 \makebox[\textwidth][c]{%
   \includegraphics[width=1.6\textwidth]{figures/evalPDN}%
 }
-\caption[Input Data for PCA error heat map]{The left image shows the error heat map when using the point method. The middle one uses the deformation method. The right one uses point and normals. The color of each point reflects the amount of the error. Red color indicates large error, blue small error.}
+\caption[Input Data for PCA error heat map]{The left image shows the error heat map when using the point method. The middle one uses the deformation method. The right one uses the point normals method. The color of each point reflects the amount of the error. Red color indicates large error, blue small error.}
 \label{fig:PDNheatmap}
 \end{figure}
 
 \subsection{Discussion}
 The amount of time it takes to compute the parameteric model based on deformations takes a lot longer due to the fact that additional normals need to be computed followed by the computation of the $Q$ matrix. One can see that the additional time to compute normals is also reflected in the point and normals method. Therefore roughly $\mathbf{40\%}$ of the time is accounted for by the normal computation.\\
-All three methods worsen going from training to test case, but that is expected. This is caused by the models having seen the training set before and are already familiar with those examples. Of the three methods the points and normals method achieves the best results over test and training. The reason this occurs is due to the fact that the the normals carry some information of the size of the faces.
+All three methods worsen going from training to test case, but that is expected. This is caused by the models having seen the training set before and are already familiar with those examples. Of the three methods the points and normals method achieves the best results over test and training. The reason this occurs is due to the fact that the the normals carry some information of the size of the faces.\\
+Figure \ref{fig:PDNheatmap} looks similar for all three cases. The error for the deformation method is higher than for the other two methods. Also around the right breast the red are seems larger and darker than for the other two. Visually no difference can be made out between the point method and the point normals method.
 
 \section{Learning Mapping}
 The next step was to investigate, if non-linear mappings could perform better than a linear mapping. Additionally, it is checked how the error changes, when PCA is done on the complete set, instead of, only the training set. The reason, this is done, is because the mapping shouldn't be penalized or perform badly because of the parametric model. For each of the approaches the best parameters need to be found first by running cross-validation grid search. Each of the learnt mappings can be applied to the test set and compared against the ground truth. The mean point error is computed to measure the error.
 
 \subsection{Problem Setting}
 The parameters for each of the 57 pair meshes are computed according to two parametric model. These will be referred to as the "complete" and "incomplete" model, where the "complete" model was based on the training and test data, where as the "incomplete" model only received the training data. The non-linear approaches used are a decision tree regressor, a random forest regressor, a multilayer perceptron with a rectified linear unit (ReLU) as its activation function and a multilayer perceptron without a ReLU. \\
-For each approach the best parameters are evaluated by running cross-validation grid search for either cases. Finally, the training and test errors are computed based on the best parameters and a ratio between test and training error is calculated. Optimally, this ratio should be one, as the test error should be equally low as the training error.
+For each approach the best parameters are evaluated by running cross-validation grid search for either cases. The parameters varies are listed in a table that can be found in the appendix \ref{gstable}. %TODO
+Finally, the training and test errors are computed based on the best parameters and a ratio between test and training error is calculated. Optimally, this ratio should be one, as the test error should be equally low as the training error.
 
 \subsection{Results}
 The results for the different cases can be seen in \ref{tableMapping}. The table is divided into two sections, the first half for the results of the "incomplete" model and the second for the "complete" model. The first row of results are the mean errors for the training set, the second row for the test set. The error for a prediction is computed by comparing to the ground truth with the mesh point error as explained in \ref{mpError}. The resulting error is equivalent to the mean over all errors. The last column is the ratio between test and training.
+
 \begin{table}[]
 \centering
-\label{tableMapping}
 \begin{tabular}{l|l|l|l|l|}
 \cline{2-5}
 \textbf{PCA Model}  & \textbf{Method}        & \textbf{\begin{tabular}[c]{@{}l@{}}Training\\ Mean Error\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Test\\ Mean Error\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Ratio\\ Test/Train\end{tabular}} \\ \cline{2-5}
@@ -105,6 +107,7 @@ The results for the different cases can be seen in \ref{tableMapping}. The table
 \textbf{}           & \textbf{MLP ReLU}      & 0.0161                                                                 & 0.0193                                                             & 1.20                                                                \\ \cline{2-5}
 \end{tabular}
 \caption[Learnt mapping results]{This tables shows the mean errors computed on the training and test set. The first five rows show the results for the "incomplete" model, the last five for the "complete" model. The first two columns are the training and test error, followed by the ratio of test to training error.}
+\label{tableMapping}
 \end{table}
 
 \subsection{Discussion}

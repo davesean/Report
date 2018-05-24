@@ -1,0 +1,14 @@
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {\relax 3.1}{\ignorespaces The mesh is depicted as the grey surface. The points drawn in green are used for the alignment.\relax }}{7}{figure.caption.7}
+\contentsline {figure}{\numberline {\relax 3.2}{\ignorespaces A vertex is added to the triangle that lies in the direction of the normal.\relax }}{8}{figure.caption.8}
+\contentsline {figure}{\numberline {\relax 3.3}{\ignorespaces Fitting a line to a point cloud using linear least-squares.\relax }}{10}{figure.caption.9}
+\contentsline {figure}{\numberline {\relax 3.4}{\ignorespaces Example of a decision tree following example of section \ref {sec:dt}\relax }}{11}{figure.caption.11}
+\contentsline {figure}{\numberline {\relax 3.5}{\ignorespaces Scheme of a multilayer perceptron for regression.\relax }}{12}{figure.caption.14}
+\contentsline {figure}{\numberline {\relax 3.6}{\ignorespaces Graphical user interface of MakeHuman.\relax }}{13}{figure.caption.15}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {\relax 4.1}{\ignorespaces The left image depicts distances between corresponding points of the mesh. The right image shows a representation of the information used to compute the $\mathbf {Q}$ matrix.\relax }}{16}{figure.caption.16}
+\contentsline {figure}{\numberline {\relax 4.2}{\ignorespaces Input Data for PCA error heat map}}{18}{figure.caption.18}
+\addvspace {10\p@ }
+\addvspace {10\p@ }

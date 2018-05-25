@@ -14,9 +14,9 @@
 \contentsline {section}{\numberline {3.3}Mapping}{9}{section.3.3}
 \contentsline {subsection}{\numberline {3.3.1}Linear Method}{9}{subsection.3.3.1}
 \contentsline {subsection}{\numberline {3.3.2}Non-Linear Variants}{10}{subsection.3.3.2}
-\contentsline {subsubsection}{\nonumberline Decision Tree}{10}{section*.10}
-\contentsline {subsubsection}{\nonumberline Random Forest}{11}{section*.12}
-\contentsline {subsubsection}{\nonumberline Multilayer Perceptron}{11}{section*.13}
+\contentsline {subsubsection}{Decision Tree}{10}{section*.10}
+\contentsline {subsubsection}{Random Forest}{11}{section*.12}
+\contentsline {subsubsection}{Multilayer Perceptron}{11}{section*.13}
 \contentsline {section}{\numberline {3.4}Parametric Model from Editor}{12}{section.3.4}
 \contentsline {section}{\numberline {3.5}Fitting parametric models to point clouds}{12}{section.3.5}
 \contentsline {chapter}{\numberline {4}Results}{15}{chapter.4}
@@ -34,9 +34,9 @@
 \contentsline {subsection}{\numberline {4.4.3}Discussion}{20}{subsection.4.4.3}
 \contentsline {section}{\numberline {4.5}Parametric Models}{21}{section.4.5}
 \contentsline {subsection}{\numberline {4.5.1}Problem Setting}{21}{subsection.4.5.1}
-\contentsline {subsection}{\numberline {4.5.2}Results}{21}{subsection.4.5.2}
-\contentsline {subsection}{\numberline {4.5.3}Discussion}{21}{subsection.4.5.3}
+\contentsline {subsection}{\numberline {4.5.2}Results}{22}{subsection.4.5.2}
+\contentsline {subsection}{\numberline {4.5.3}Discussion}{22}{subsection.4.5.3}
 \contentsline {chapter}{\numberline {5}Conclusion}{23}{chapter.5}
 \contentsline {section}{\numberline {5.1}Outlook}{23}{section.5.1}
 \contentsline {chapter}{\numberline {A}Appendix}{25}{appendix.A}
-\contentsline {chapter}{Bibliography}{27}{table.caption.20}
+\contentsline {chapter}{Bibliography}{27}{table.caption.23}

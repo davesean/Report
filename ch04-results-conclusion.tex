@@ -42,7 +42,7 @@ The idea of this method is to generate a visualization of the error, indicating 
 \begin{gather}
 e'_{i} = \sum_{k=1}^{m} \sqrt{\sum_{j=1}^3(M_{i,j}^{(p_k)} - M_{i,j}^{(g_k)})^2} \  \forall i=1 \dots n \text{ with } e = \frac{e'}{max(e')}
 \end{gather}
-where $m$ is the number of samples, $e'$ is a vector of the accumulated errors over all samples and $e$ is a vector of the errors scaled by the largest entry in $e'$. This is done to visualize the error on a range, such that, for example, the error can be color coded, where red is equivalent to a large error and green is a small error.
+where $m$ is the number of samples, $e'$ is a vector of the accumulated errors over all samples and $e$ is a vector of the errors scaled inversely by the largest entry in $e'$. This is done to visualize the error on a range, such that, for example, the error can be color coded, where red is equivalent to a large error and green is a small error.
 %TODO change colors used for large and small according to colormap used
 \section{Input Data for PCA}
 In this experiment, three different variations of data inputs are tested for PCA, as described in section \ref{paramModel} and the following two subsections. Based on the resulting parameters of each model, a linear mapping is created and compared based on the error of the predictions.
@@ -80,7 +80,7 @@ All three methods worsen going from training to test sets, but that is expected.
 Figure \ref{fig:PDNheatmap} looks similar for all three cases. The error for the deformation method is higher than for the other two methods. Also around the right breast the red are seems larger and darker than for the other two. Visually no difference can be made out between the point method and the point normals method.
 
 \section{Learning Mapping}
-The next step was to investigate, if non-linear mappings could perform better than a linear mapping. Additionally, it is checked how the error changes, when PCA is done on the complete set, instead of, only the training set. The reason, this is done, is because the mapping shouldn't be penalized or perform badly because of the parametric model. For each of the approaches the best parameters need to be found first by running cross-validation grid search. Each of the learnt mappings can be applied to the test set and compared against the ground truth. The mean point error is computed to measure the error.
+The next step was to investigate, if non-linear mappings could perform better than a linear mapping. Additionally, it is analyzed how the error behaves, when PCA is done on the complete set, instead of, only the training set. The reason, this is done, is because the mapping shouldn't be penalized or perform badly because of the parametric model. For each of the approaches the best parameters need to be found first by running cross-validation grid search. Each of the learnt mappings can be applied to the test set and compared against the ground truth. The mean point error is computed to measure the error.
 
 \subsection{Problem Setting}
 The parameters for each of the 57 pair meshes are computed according to two parametric model. These will be referred to as the "complete" and "incomplete" model, where the "complete" model was based on the training and test data, where as the "incomplete" model only received the training data. The non-linear approaches used are a decision tree regressor, a random forest regressor, a multilayer perceptron with a rectified linear unit (ReLU) as its activation function and a multilayer perceptron without a ReLU. \\
@@ -115,14 +115,72 @@ It is interesting to see that the training error of the linear method and the ra
 
 The behaviour of the test error going from "incomplete" to "complete" is similar to the training error. The linear method worsens gravely, perhaps due to the "complete" model describing a wider space, making it harder for the linear method to find an appropriate mapping. All of the non-linear methods perform similarly in the "complete" case compared to the "incomplete" case in terms of mean test error.\\
 
-Even though the best performing method in terms of error is the MLP, the MLP with ReLU has similar error values but has a slightly better test/train ratio. This could indicate that this method is more robust, meaning that the error behaves similarly when applied to new data.
+Even though the best performing method in terms of error is the MLP, the MLP with ReLU has similar error values but has a slightly better test/train ratio. This could indicate that this method is more robust, meaning that the expected error for new data should be similar. It can be seen that all non-linear methods outperform the linear method. This difference in performance could increase drastically when the model gets more complex due to more data.
 
 \section{Parametric Models}
-Given two parametric models and a test set of point clouds, both models process the point clouds as described in section \ref{fitModel}.
+For this experiment, it is explored how a parametric model based on an editor like MakeHuman performs against a model based on real data. As the topologies of the meshes used for the parametric models, are different, the models are seperately evaluated and the resulting error heat maps are compared. Both models are tested, using the Ceres implementation by Biland \ref{Biland17}, mentioned in section \ref{fitModel}. The resulting mesh is then compared to the NRICP solution.
 \subsection{Problem Setting}
+Firstly, a parametric model is created from MakeHuman. To achieve this, 8 sliders of the editor are varied between 3 positions and exported into MATLAB. The sliders and positions used, can be found in the appendix in table \ref{}. %TODO
+This results in 6'561 meshes, which are used to generate a parametric model. For the model based on real data, the parametric model, generated from the \textit{before} meshes, is used. The ground truth meshes for the real data are already available, as those point clouds were already processed earlier. The ground truth meshes for the MakeHuman model are generated by running NRICP with modified MakeHuman mesh. The difference between the original mesh and the modified MakeHuman mesh can be seen in figure \ref{fig:mhcut}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/meshcut00}
+\caption[Cut MakeHuman mesh]{On the left the original mesh of MakeHuman can be seen. The cut mesh is on the right.}
+\label{fig:mhcut}
+\end{figure}
+
+The Ceres implementation is run for both parameteric models, fitting both models to the test set of \textit{before} point clouds. The resulting meshes are then compared to the ground truth by generating a error heat map for both models.
+
 \subsection{Results}
+In figure \ref{fig:compparammodel} the error in distance per vertex is accumulated over all test set examples. The maximum vertex error is stated above the mesh for each model respectively, left for MakeHuman and right for real data. All errors were scaled inversely by the largest error, coloring the largest errors dark red and small errors dark blue. For the MakeHuman model the largest errors arise around the nippel and the lower side of the breast. The real data model has the largest error around the nipple and the area to the outside of the breast.
+
+\begin{figure}
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{figures/ceresMhErrorMapBefore}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{figures/ceresRealErrorMapBefore}
+\end{subfigure}
+\caption[Parametric model comparison]{The left image shows the error heat map for the MakeHuman model. The right image depicts the error heat map for the model based on real data.}
+\label{fig:compparammodel}
+\end{figure}
+
 \subsection{Discussion}
+The maximum error for the MakeHuman model is roughly 2.5 times larger than for the real data model. Especially in the nipple area the error is quite large. It appears that, this is caused by the difference to the ground truth. When comparing the shape of the MakeHuman ground truth to the input image in figure \ref{fig:compimagefiticp}, it looks like the ground truth solution doesn't represent the input very well. This might be caused by the low resolution of the mesh, hindering the NRICP algorithm to capture the breast shape features properly. On the other hand, the real data ground truth seems to portray the input image better. The topologies of the meshes are very different. The real data mesh is a lot more refined around the breast and nipple.
+
+\begin{figure}
+\centering
+\begin{subfigure}{.25\textwidth}
+  \centering
+  \includegraphics[width=1.05\linewidth]{figures/sprite57}
+\end{subfigure}%
+\begin{subfigure}{.37\textwidth}
+  \centering
+  \includegraphics[width=1.1\linewidth]{figures/fitted57_cropped}
+\end{subfigure}
+\begin{subfigure}{.37\textwidth}
+  \centering
+  \includegraphics[width=1.1\linewidth]{figures/before57_cropped}
+\end{subfigure}
+\caption[Comparison image, fitted and ICP]{The left image shows the torso of the subject. The first two meshes (light grey) are the ground truth meshes, generated from NRICP. The two other meshes (dark grey) are the fits generated from the Ceres implementation. Of each pair, the left mesh represents the MakeHuman model and the right represents the real data model.}
+\label{fig:compimagefiticp}
+\end{figure}
 
 \chapter{Conclusion}
+The first objective of this thesis was to find a mapping between \textit{before} and \textit{after} meshes and explore the possibility of non-linear mappings. It turned out to work quite well using a linear mapping, but
+Further, it was inquired, if changing the representation of the mesh could increase the accuracy of predictions. Lastly,
 
+
+This first linear mapping found, was able to predict parameters quite well.
+
+For this, the triangle deformation was considered and also lead to the idea of adding points on the normal to the original method.
+
+
+ The first objective of this thesis was to find a mapping between \textit{before} and \textit{after} meshes. Further, it was inquired, if the predictions improved when using non-linear mappings, instead of linear ones. The first linear mapping found, was able to predict parameters quite well.
+
+it is clear that this relation needs t
 \section{Outlook}

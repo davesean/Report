@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2011.6.14)  25 MAY 2018 19:04
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2011.6.14)  26 MAY 2018 11:20
 entering extended mode
 **C:/Users/haldavid/Desktop/Report/thesis.tex
 (C:/Users/haldavid/Desktop/Report/thesis.tex
@@ -834,31 +834,45 @@ File: figures/meshcut00.png Graphic file (type png)
 <use figures/meshcut00.png>
 Package pdftex.def Info: figures/meshcut00.png used on input line 128.
 (pdftex.def)             Requested size: 318.70944pt x 211.13354pt.
- [21 <C:/Users/haldavid/Desktop/Report/figures/meshcut00.png (PNG copy)>]
-<figures/ceresMhErrorMapBefore.png, id=503, 1445.4pt x 815.29594pt>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: Reference `' on page 21 undefined on input line 133.
+
+<figures/ceresMhErrorMapBefore.png, id=499, 1445.4pt x 815.29594pt>
 File: figures/ceresMhErrorMapBefore.png Graphic file (type png)
 
 <use figures/ceresMhErrorMapBefore.png>
 Package pdftex.def Info: figures/ceresMhErrorMapBefore.png used on input line 1
 42.
-(pdftex.def)             Requested size: 227.6506pt x 128.39734pt.
+(pdftex.def)             Requested size: 250.41705pt x 141.24828pt.
 
-<figures/ceresRealErrorMapBefore.png, id=504, 1445.4pt x 815.29594pt>
+Overfull \hbox (22.76645pt too wide) in paragraph at lines 142--143
+ [][] 
+ []
+
+<figures/ceresRealErrorMapBefore.png, id=500, 1445.4pt x 815.29594pt>
 File: figures/ceresRealErrorMapBefore.png Graphic file (type png)
 
 <use figures/ceresRealErrorMapBefore.png>
 Package pdftex.def Info: figures/ceresRealErrorMapBefore.png used on input line
  146.
-(pdftex.def)             Requested size: 227.6506pt x 128.39734pt.
+(pdftex.def)             Requested size: 250.41705pt x 141.24828pt.
 
-<figures/sprite57.png, id=506, 241.65282pt x 240.14719pt>
+Overfull \hbox (22.76645pt too wide) in paragraph at lines 146--147
+ [][] 
+ []
+
+[21] <figures/sprite57.png, id=506, 241.65282pt x 240.14719pt>
 File: figures/sprite57.png Graphic file (type png)
 
 <use figures/sprite57.png>
 Package pdftex.def Info: figures/sprite57.png used on input line 159.
-(pdftex.def)             Requested size: 119.5169pt x 118.77243pt.
+(pdftex.def)             Requested size: 105.17545pt x 104.51813pt.
 
-Overfull \hbox (5.6916pt too wide) in paragraph at lines 159--160
+Overfull \hbox (5.00864pt too wide) in paragraph at lines 159--160
  [][] 
  []
 
@@ -867,33 +881,30 @@ File: figures/fitted57_cropped.png Graphic file (type png)
 
 <use figures/fitted57_cropped.png>
 Package pdftex.def Info: figures/fitted57_cropped.png used on input line 163.
-(pdftex.def)             Requested size: 185.30615pt x 131.25653pt.
-
-Overfull \hbox (16.84694pt too wide) in paragraph at lines 163--164
- [][] 
- []
+(pdftex.def)             Requested size: 173.01668pt x 122.5471pt.
 
 <figures/before57_cropped.png, id=508, 903.375pt x 639.89063pt>
 File: figures/before57_cropped.png Graphic file (type png)
 
 <use figures/before57_cropped.png>
 Package pdftex.def Info: figures/before57_cropped.png used on input line 167.
-(pdftex.def)             Requested size: 185.30615pt x 131.25653pt.
-
-Overfull \hbox (16.84694pt too wide) in paragraph at lines 167--168
- [][] 
- []
-
-[22 <C:/Users/haldavid/Desktop/Report/figures/ceresMhErrorMapBefore.png (PNG co
-py)> <C:/Users/haldavid/Desktop/Report/figures/ceresRealErrorMapBefore.png (PNG
- copy)>] [23 <C:/Users/haldavid/Desktop/Report/figures/sprite57.png> <C:/Users/
-haldavid/Desktop/Report/figures/fitted57_cropped.png> <C:/Users/haldavid/Deskto
-p/Report/figures/before57_cropped.png>] [24
+(pdftex.def)             Requested size: 173.01668pt x 122.5471pt.
+ [22 <C:/Users/haldavid/Desktop/Report/figures/meshcut00.png (PNG copy)> <C:/Us
+ers/haldavid/Desktop/Report/figures/ceresMhErrorMapBefore.png (PNG copy)> <C:/U
+sers/haldavid/Desktop/Report/figures/ceresRealErrorMapBefore.png (PNG copy)>] [
+23 <C:/Users/haldavid/Desktop/Report/figures/sprite57.png> <C:/Users/haldavid/D
+esktop/Report/figures/fitted57_cropped.png> <C:/Users/haldavid/Desktop/Report/f
+igures/before57_cropped.png>] [24
 
 
 ]
 Chapter 5.
 )
+Underfull \hbox (badness 10000) in paragraph at lines 177--181
+
+ []
+
+
 Overfull \hbox (2.28004pt too wide) has occurred while \output is active
 []|[] []
  []
@@ -902,13 +913,7 @@ Overfull \hbox (2.28004pt too wide) has occurred while \output is active
 Overfull \vbox (459.06232pt too high) has occurred while \output is active []
 
 
-[25] (C:\Users\haldavid\Desktop\Report\apx-sample-appendix.tex [26
-
-
-
-
-
-]
+[25] [26] (C:\Users\haldavid\Desktop\Report\apx-sample-appendix.tex
 Appendix A.
 
 LaTeX Warning: No positions in optional float specifier.
@@ -931,7 +936,13 @@ Overfull \hbox (2.28004pt too wide) has occurred while \output is active
 Overfull \vbox (459.06232pt too high) has occurred while \output is active []
 
 
-[27] [28] (C:\Users\haldavid\Desktop\Report\thesis.bbl
+[27
+
+
+
+
+
+] [28] (C:\Users\haldavid\Desktop\Report\thesis.bbl
 LaTeX Font Info:    Try loading font information for T1+pcr on input line 13.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex/latex\psnfss\t1pcr.fd"
@@ -1000,7 +1011,7 @@ lvetic/uhvr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmb
 Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Fil
 es (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files (x86)/Mi
 KTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on thesis.pdf (42 pages, 2356016 bytes).
+Output written on thesis.pdf (42 pages, 2369578 bytes).
 PDF statistics:
  645 PDF objects out of 1000 (max. 8388607)
  131 named destinations out of 1000 (max. 500000)

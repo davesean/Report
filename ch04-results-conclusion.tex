@@ -11,7 +11,7 @@ For this thesis two error metrics were considered:
 
 One drawback of the point distance method occurs, when the two meshes are not aligned properly. This can be solved by applying the same algorithm mentioned in section \ref{align} before computing the error. One advantage of this method is the unit of the error, as it could be converted into a unit of distance, given that the distance between two points is known in real world lengths. This error can also be computed when two meshes are not topologically equal by first finding the correspondences between vertices.\\
 One advantage of the face orientation method is the invariance of translation and global rotation. This means that moving or rotating the mesh doesn't affect the error. On the other hand, the values of this error don't have a real world meaning and it is a lot harder to apply this method to topologically different meshes, as finding correspondences between faces is a lot more challenging.\\
-The methods are depicted in figure \ref{fig:errordiag}. Both methods have their advantages and disadvantages, but due to the fact that alignment isn't a problem, the error metric used in this thesis is the point distance method.
+The methods are depicted in figure \ref{fig:errordiag}. Both methods have their advantages and disadvantages, but due to the fact that alignment isn't a problem, the error metric used in this thesis is the point distance method. Additionally, based on the MakeHuman model, the distance between the belly button and throat is approximated to be $40.6cm$. Given this information, all distances can be computed in centimetres.
 
 \begin{figure}
 \centering
@@ -31,18 +31,18 @@ The methods are depicted in figure \ref{fig:errordiag}. Both methods have their 
 In the following section, the evaluation methods that were used, are explained. Optimally, when evaluating a prediction, some representation of the true outcome, often called the "ground truth", is given. This is useful to quantify how accurate the prediction was.
 \subsection{Mesh Point Error} % Compare to GT
 \label{mpError}
-For this method the comparison is done as explained in section \ref{Emetrics}. Before evaluating the point distances between a prediction and the ground truth, the meshes are aligned as mentioned in section \ref{align}. Additionally, the mean point distance error is computed by diving by the number of vertices in the mesh and also by diving by the diagonal of the largest bounding box over all examples to scale the error to a meaningful unit. Given a prediction of a mesh $M^{(p)}$ and the ground truth $M^{(g)}$ the problem can be stated as:
+For this method the comparison is done as explained in section \ref{Emetrics}. Before evaluating the point distances between a prediction and the ground truth, the meshes are aligned as mentioned in section \ref{align}. Additionally, the mean point distance error is computed by diving by the number of vertices in the mesh and also by multiplying with the approximated centimetre length of one unit in mesh space to transform all values into centimetres. Given a prediction of a mesh $M^{(p)}$ and the ground truth $M^{(g)}$ the problem can be stated as:
 \begin{gather}
-error = \frac{1}{nd_{max}}\sum_{i=1}^{n} \sqrt{\sum_{j=1}^3(M_{i,j}^{(p)} - M_{i,j}^{(g)})^2}
+error = s_{cm}\sum_{i=1}^{n} \sqrt{\sum_{j=1}^3(M_{i,j}^{(p)} - M_{i,j}^{(g)})^2}
 \end{gather}
-where $n$ is the number of vertices of the mesh, $d_{max}$ is the diagonal length of the largest bounding box over all examples and the final result is a scalar value.
+where $n$ is the number of vertices of the mesh, $s_{cm}$ is the approximated length in centimetres equivalent to one unit distance in mesh space.
 \subsection{Error Heat Map} % Compare to NRICP vs Ceres
 \label{mhError}
-The idea of this method is to generate a visualization of the error, indicating where the prediction failed to represent the ground truth the most. This can be accomplished by computing the error described in section \ref{Emetrics} but instead of adding up the errors, keeping them separate for each vertex. This error per vertex is accumulated over multiple samples. Given the  k-th prediction of a mesh $M^{(p_k)}$ and the corresponding ground truth $M^{(g_k)}$ the problem can be described as:
+The idea of this method is to generate a visualization of the error, indicating where the prediction failed to represent the ground truth the most. This can be accomplished by computing the error described in section \ref{Emetrics} but instead of adding up the errors per mesh, the errors are stored separately for each vertex. This error per vertex is accumulated over multiple samples and the mean is computed. Given the k-th prediction of a mesh $M^{(p_k)}$ and the corresponding ground truth $M^{(g_k)}$ the problem can be described as:
 \begin{gather}
-e'_{i} = \sum_{k=1}^{m} \sqrt{\sum_{j=1}^3(M_{i,j}^{(p_k)} - M_{i,j}^{(g_k)})^2} \  \forall i=1 \dots n \text{ with } e = \frac{e'}{max(e')}
+e'_{i} = \frac{s_{cm}}{m} \sum_{k=1}^{m} \sqrt{\sum_{j=1}^3(M_{i,j}^{(p_k)} - M_{i,j}^{(g_k)})^2} \  \forall i=1 \dots n \text{ with } e = \frac{e'}{max(e')}
 \end{gather}
-where $m$ is the number of samples, $e'$ is a vector of the accumulated errors over all samples and $e$ is a vector of the errors scaled inversely by the largest entry in $e'$. This is done to visualize the error on a range, such that, for example, the error can be color coded, where red is equivalent to a large error and green is a small error.
+where $m$ is the number of samples, $s_{cm}$ is the approximated length in centimetres equivalent to one unit distance in mesh space, $e'$ is a vector of the accumulated errors over all samples and $e$ is a vector of the errors scaled inversely by the largest entry in $e'$. This is done to visualize the error on a range, such that, for example, the error can be color coded, where dark red is equivalent to a large error and blue is a small error.
 %TODO change colors used for large and small according to colormap used
 \section{Input Data for PCA}
 In this experiment, three different variations of data inputs are tested for PCA, as described in section \ref{paramModel} and the following two subsections. Based on the resulting parameters of each model, a linear mapping is created and compared based on the error of the predictions.
@@ -50,18 +50,18 @@ In this experiment, three different variations of data inputs are tested for PCA
 \subsection{Problem Setting}
 Given a data set comprised of 57 pairs of meshes, where one mesh is based on the before point cloud and the other is based on the after point cloud, both sets are split into equally-sized sets of 42 training pairs and 15 testing pairs. Each variation is trained on the training set and afterwards evaluated on the test set. The evaluation is done by computing a linear mapping over the parameters of each model. Then the mean mesh point error over all 15 testing pairs is computed and an error heat map is generated.
 \subsection{Results}
-In the table \ref{tablePDN} the time column is the amount of time each method needed to compute the parametric model. The training mean error is computed as mentioned in \ref{mpError} for each case. The mean is computed over all cases. The same is done for the test mean error. In each subfigure of figure \ref{fig:PDNheatmap} the values that are listed above are the respective $\mathbf{max(e')}$ as explained in \ref{mhError}. Additionally, one vertex on the border doesn't have a colored point as the error wasn't being computed correctly for it.
+In the table \ref{tablePDN} the time column is the amount of time each method needed to compute the parametric model. The training mean error is computed as mentioned in \ref{mpError} for each case. The mean is computed over all cases. The same is done for the test mean error. The errors for the error heat maps were computed on the test set. In each subfigure of figure \ref{fig:PDNheatmap} the values that are listed above are the respective $\mathbf{max(e')}$ as explained in \ref{mhError}. Additionally, one vertex on the border doesn't have a colored point as the error wasn't being computed correctly for it.
 
 \begin{table}[]
 \centering
 \begin{tabular}{l|l|l|l|l|}
 \cline{2-5}
-                                                  & \textbf{Time} & \textbf{\begin{tabular}[c]{@{}l@{}}Training\\ Mean Error\end{tabular}} & \multicolumn{2}{l|}{\textbf{\begin{tabular}[c]{@{}l@{}}Test\\ Mean Error\end{tabular}}} \\ \hline
-\multicolumn{1}{|l|}{\textbf{Point}}              & 0.06s         & 0.00733                                                                & \multicolumn{2}{l|}{0.01845}                                                            \\ \hline
-\multicolumn{1}{|l|}{\textbf{Deformation}}        & 6.81s         & 0.0090                                                                 & \multicolumn{2}{l|}{0.02795}                                                            \\ \hline
-\multicolumn{1}{|l|}{\textbf{Points and Normals}} & 2.92s         & 0.0071                                                                 & \multicolumn{2}{l|}{0.01841}                                                            \\ \hline
+                                                  & \textbf{Time (s)} & \textbf{\begin{tabular}[c]{@{}l@{}}Training\\ Mean Error (cm)\end{tabular}} & \multicolumn{2}{l|}{\textbf{\begin{tabular}[c]{@{}l@{}}Test\\ Mean Error (cm)\end{tabular}}} \\ \hline
+\multicolumn{1}{|l|}{\textbf{Point}}              & 0.06         & 0.40                                                                & \multicolumn{2}{l|}{1.01}                                                            \\ \hline
+\multicolumn{1}{|l|}{\textbf{Deformation}}        & 6.81         & 0.49                                                                 & \multicolumn{2}{l|}{1.53}                                                            \\ \hline
+\multicolumn{1}{|l|}{\textbf{Points and Normals}} & 2.92         & 0.39                                                                 & \multicolumn{2}{l|}{1.01}                                                            \\ \hline
 \end{tabular}
-\caption[Table of results of Input Data for PCA]{Results in terms of mean mesh point error are listed for the training and for the test set. Also the time each function took to compute the parametric model is listed in seconds.}
+\caption[Table of results of Input Data for PCA]{Results in terms of mean mesh point error are listed for the training and for the test set in centimetres. Also the time each function took to compute the parametric model is listed in seconds.}
 \label{tablePDN}
 \end{table}
 
@@ -94,19 +94,19 @@ The results for the different cases can be seen in \ref{tableMapping}. The table
 \centering
 \begin{tabular}{l|l|l|l|l|}
 \cline{2-5}
-\textbf{PCA Model}  & \textbf{Method}        & \textbf{\begin{tabular}[c]{@{}l@{}}Training\\ Mean Error\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Test\\ Mean Error\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Ratio\\ Test/Train\end{tabular}} \\ \cline{2-5}
-\textbf{Incomplete} & \textbf{Linear}        & 0.0073                                                                 & 0.0184                                                             & 2.52                                                                \\ \cline{2-5}
-\textbf{}           & \textbf{Random Forest} & 0.0068                                                                 & 0.0196                                                             & 2.88                                                                \\ \cline{2-5}
-\textbf{}           & \textbf{Decision Tree} & 0.0127                                                                 & 0.0237                                                             & 1.86                                                                \\ \cline{2-5}
-\textbf{}           & \textbf{MLP}           & 0.0154                                                                 & 0.0186                                                             & 1.21                                                                \\ \cline{2-5}
-\textbf{}           & \textbf{MLP ReLU}      & 0.0173                                                                 & 0.0203                                                             & 1.17                                                                \\ \cline{2-5}
-\textbf{Complete}   & \textbf{Linear}        & 0.0076                                                                 & 0.0357                                                             & 4.70                                                                \\ \cline{2-5}
-\textbf{}           & \textbf{Random Forest} & 0.0077                                                                 & 0.0196                                                             & 2.55                                                                \\ \cline{2-5}
-\textbf{}           & \textbf{Decision Tree} & 0.0125                                                                 & 0.0218                                                             & 1.74                                                                \\ \cline{2-5}
-\textbf{}           & \textbf{MLP}           & 0.0152                                                                 & 0.0193                                                             & 1.27                                                                \\ \cline{2-5}
-\textbf{}           & \textbf{MLP ReLU}      & 0.0161                                                                 & 0.0193                                                             & 1.20                                                                \\ \cline{2-5}
+\textbf{PCA Model}  & \textbf{Method}        & \textbf{\begin{tabular}[c]{@{}l@{}}Training\\ Mean Error (cm)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Test\\ Mean Error (cm)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Ratio\\ Test/Train\end{tabular}} \\ \cline{2-5}
+\textbf{Incomplete} & \textbf{Linear}        & 0.40                                                                 & 1.01                                                             & 2.52                                                                \\ \cline{2-5}
+\textbf{}           & \textbf{Random Forest} & 0.37                                                                 & 1.07                                                             & 2.88                                                                \\ \cline{2-5}
+\textbf{}           & \textbf{Decision Tree} & 0.69                                                                 & 1.30                                                             & 1.86                                                                \\ \cline{2-5}
+\textbf{}           & \textbf{MLP}           & 0.84                                                                 & 1.02                                                             & 1.21                                                                \\ \cline{2-5}
+\textbf{}           & \textbf{MLP ReLU}      & 0.95                                                                 & 1.11                                                             & 1.17                                                                \\ \cline{2-5}
+\textbf{Complete}   & \textbf{Linear}        & 0.42                                                                 & 1.95                                                             & 4.70                                                                \\ \cline{2-5}
+\textbf{}           & \textbf{Random Forest} & 0.42                                                                 & 1.07                                                             & 2.55                                                                \\ \cline{2-5}
+\textbf{}           & \textbf{Decision Tree} & 0.68                                                                 & 1.19                                                             & 1.74                                                                \\ \cline{2-5}
+\textbf{}           & \textbf{MLP}           & 0.83                                                                 & 1.06                                                             & 1.27                                                                \\ \cline{2-5}
+\textbf{}           & \textbf{MLP ReLU}      & 0.88                                                                 & 1.06                                                             & 1.20                                                                \\ \cline{2-5}
 \end{tabular}
-\caption[Learnt mapping results]{This tables shows the mean errors computed on the training and test set. The first five rows show the results for the "incomplete" model, the last five for the "complete" model. The first two columns are the training and test error, followed by the ratio of test to training error.}
+\caption[Learnt mapping results]{This tables shows the mean errors computed on the training and test set in centimetres. The first five rows show the results for the "incomplete" model, the last five for the "complete" model. The first two columns are the training and test error, followed by the ratio of test to training error.}
 \label{tableMapping}
 \end{table}
 
@@ -120,7 +120,7 @@ Even though the best performing method in terms of error is the MLP, the MLP wit
 \section{Parametric Models}
 For this experiment, it is explored how a parametric model based on an editor like MakeHuman performs against a model based on real data. As the topologies of the meshes used for the parametric models, are different, the models are seperately evaluated and the resulting error heat maps are compared. Both models are tested, using the Ceres implementation by Biland \ref{Biland17}, mentioned in section \ref{fitModel}. The resulting mesh is then compared to the NRICP solution.
 \subsection{Problem Setting}
-Firstly, a parametric model is created from MakeHuman. To achieve this, 8 sliders of the editor are varied between 3 positions and exported into MATLAB. The sliders and positions used, can be found in the appendix in table \ref{}. %TODO
+Firstly, a parametric model is created from MakeHuman. To achieve this, 8 semantic parameters of the editor are varied between 3 positions and exported into MATLAB. The semantic parameters and values used, can be found in the appendix in table \ref{}. %TODO table sliders makehuman
 This results in 6'561 meshes, which are used to generate a parametric model. For the model based on real data, the parametric model, generated from the \textit{before} meshes, is used. The ground truth meshes for the real data are already available, as those point clouds were already processed earlier. The ground truth meshes for the MakeHuman model are generated by running NRICP with modified MakeHuman mesh. The difference between the original mesh and the modified MakeHuman mesh can be seen in figure \ref{fig:mhcut}.
 
 \begin{figure}[h]
@@ -130,7 +130,7 @@ This results in 6'561 meshes, which are used to generate a parametric model. For
 \label{fig:mhcut}
 \end{figure}
 
-The Ceres implementation is run for both parameteric models, fitting both models to the test set of \textit{before} point clouds. The resulting meshes are then compared to the ground truth by generating a error heat map for both models.
+The Ceres implementation is run for both parameteric models, fitting both models to the test set of \textit{before} point clouds. The resulting meshes are then compared to the ground truth by generating a error heat map for both models. The parameters used in the implementation can be found in the appendix in table \ref{}. %TODO table coeff ceres
 
 \subsection{Results}
 In figure \ref{fig:compparammodel} the error in distance per vertex is accumulated over all test set examples. The maximum vertex error is stated above the mesh for each model respectively, left for MakeHuman and right for real data. All errors were scaled inversely by the largest error, coloring the largest errors dark red and small errors dark blue. For the MakeHuman model the largest errors arise around the nippel and the lower side of the breast. The real data model has the largest error around the nipple and the area to the outside of the breast.
@@ -139,11 +139,11 @@ In figure \ref{fig:compparammodel} the error in distance per vertex is accumulat
 \centering
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=1\linewidth]{figures/ceresMhErrorMapBefore}
+  \includegraphics[width=1.1\linewidth]{figures/ceresMhErrorMapBefore}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=1\linewidth]{figures/ceresRealErrorMapBefore}
+  \includegraphics[width=1.1\linewidth]{figures/ceresRealErrorMapBefore}
 \end{subfigure}
 \caption[Parametric model comparison]{The left image shows the error heat map for the MakeHuman model. The right image depicts the error heat map for the model based on real data.}
 \label{fig:compparammodel}
@@ -154,25 +154,26 @@ The maximum error for the MakeHuman model is roughly 2.5 times larger than for t
 
 \begin{figure}
 \centering
-\begin{subfigure}{.25\textwidth}
+\begin{subfigure}{.22\textwidth}
   \centering
   \includegraphics[width=1.05\linewidth]{figures/sprite57}
 \end{subfigure}%
-\begin{subfigure}{.37\textwidth}
+\begin{subfigure}{.38\textwidth}
   \centering
-  \includegraphics[width=1.1\linewidth]{figures/fitted57_cropped}
+  \includegraphics[width=1\linewidth]{figures/fitted57_cropped}
 \end{subfigure}
-\begin{subfigure}{.37\textwidth}
+\begin{subfigure}{.38\textwidth}
   \centering
-  \includegraphics[width=1.1\linewidth]{figures/before57_cropped}
+  \includegraphics[width=1\linewidth]{figures/before57_cropped}
 \end{subfigure}
-\caption[Comparison image, fitted and ICP]{The left image shows the torso of the subject. The first two meshes (light grey) are the ground truth meshes, generated from NRICP. The two other meshes (dark grey) are the fits generated from the Ceres implementation. Of each pair, the left mesh represents the MakeHuman model and the right represents the real data model.}
+\caption[Comparison image, fitted and ICP]{The left image shows the torso of the subject. The first two meshes (light grey) are the ground truth meshes, generated from NRICP. The two other meshes (dark grey) are the fits generated by the Ceres implementation. Of each pair, the left mesh represents the MakeHuman model and the right represents the real data model.}
 \label{fig:compimagefiticp}
 \end{figure}
 
 \chapter{Conclusion}
-The first objective of this thesis was to find a mapping between \textit{before} and \textit{after} meshes and explore the possibility of non-linear mappings. It turned out to work quite well using a linear mapping, but the non-linear methods outperformed the linear method completely. Additionally, another model based on triangle deformations was considered and a modification of the point based model, where additional point were generated along the normals of the faces. The point method with additional normals surprisingly performed the best, due to the fact that the additional points carried information about triangle surface size, which improves the model. 
-
-
+The first objective of this thesis was to find a mapping between \textit{before} and \textit{after} meshes and explore the possibility of non-linear mappings. It turned out to work quite well using a linear mapping, but the non-linear methods outperformed the linear method completely. Additionally, another model based on triangle deformations was considered and a modification of the point based model, where additional point were generated along the normals of the faces. The point method with additional normals, surprisingly, performed the best, due to the fact that the additional points carried information about triangle surface size, which improves the model. Lastly, a parametric model based on the MakeHuman editor was compared to a model based on real data. The real data model performed better, due to the fact that the mesh topology was more compatible for the task given. Additionally, that parameteric model was based on similar data. Considering these factors, the parameteric model, based on the editor, performed fairly well.
 
 \section{Outlook}
+As most of the tests and experiments were done on considerably small data sets, this is the main point that could be improved to get more definite results. This could be achieved by using another implementation of SfM or finding better parameters for SfM, such that the reconstruction of the point clouds becomes more successful. Perhaps there is other data on the internet, where 3D models are already available and could be used to create a parametric model. \\
+Regarding the mappings, the \textit{after} model was only based on a certain label. It would be interesting to explore the relationship between parameters from one model based on, for example, "300" enhancements and "350" enhancements. This could also allow to create intermediate models by interpolating between models. Further, the possibility of using tensorflow instead of sci-kit learn could be investigated.\\
+The parametric model generated from the MakeHuman meshes could also be further improved, by increasing the number of vertices per mesh. This would require a new implementation for PCA, as the current MATLAB implementation needs too much RAM to be able to load all the meshes and process them for PCA.\\

@@ -1,10 +1,13 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {\relax 3.1}{\ignorespaces Table of most frequent terms}}{6}{table.caption.6}
+\contentsline {table}{\numberline {\relax 3.1}{\ignorespaces Table of most frequent terms}}{6}{table.caption.8}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {\relax 4.1}{\ignorespaces Table of results of Input Data for PCA}}{18}{table.caption.17}
-\contentsline {table}{\numberline {\relax 4.2}{\ignorespaces Learnt mapping results}}{20}{table.caption.19}
+\contentsline {table}{\numberline {\relax 4.1}{\ignorespaces Table of results of Input Data for PCA}}{18}{table.caption.19}
+\contentsline {table}{\numberline {\relax 4.2}{\ignorespaces Learnt mapping results}}{20}{table.caption.21}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {\relax A.1}{\ignorespaces Grid Search parameter table}}{28}{table.caption.23}
+\contentsline {table}{\numberline {\relax A.1}{\ignorespaces NRICP parameters}}{28}{table.caption.25}
+\contentsline {table}{\numberline {\relax A.2}{\ignorespaces Grid Search parameter table}}{29}{table.caption.26}
+\contentsline {table}{\numberline {\relax A.3}{\ignorespaces Semantic Parameter values for MakeHuman}}{30}{table.caption.27}
+\contentsline {table}{\numberline {\relax A.4}{\ignorespaces Table of Ceres Parameters}}{31}{table.caption.28}

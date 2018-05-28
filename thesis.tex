@@ -1,6 +1,7 @@
 \documentclass[a4paper,twoside,12pt,chapterprefix=false]{scrbook}
 
 \usepackage{amsmath,amssymb,amsthm}
+\usepackage{changepage}
 %\usepackage[footnotesize,sl,SL,hang,tight]{subfigure}  % helpful package for aligning figures next to each other
 \usepackage{longtable} % tables over several pages
 \usepackage[font={small,sl},hang,labelfont=bf]{caption} % configure captions
@@ -21,6 +22,7 @@
 
 \usepackage{caption}
 \usepackage{subcaption}
+\usepackage{pdfpages}
 
 % Font packages:
 \usepackage{times}
@@ -120,9 +122,20 @@
 	\centering
 	\Huge
 	\vspace{3.0cm}
-	\textbf{\textsf{Inferring Human Body Parts and Correlations from Images, Pointclouds and Meshes}} \\[2.0cm]
+	\textbf{\textsf{Inferring Human Body Parts and Correlations from Images, Point Clouds and Meshes}} \\[2.0cm]
 	%\includegraphics*[width=0.4\textwidth]{figures/titlefigure} \\[4.0cm]
-	\vspace{5.0cm}
+	\begin{figure}[h]
+	\centering
+	\begin{subfigure}{.4\textwidth}
+	  \centering
+	  \includegraphics[width=1\linewidth]{figures/front01c}
+	\end{subfigure}%
+	\begin{subfigure}{.4\textwidth}
+	  \centering
+	  \includegraphics[width=0.8\linewidth]{figures/front01}
+	\end{subfigure}
+	\end{figure}
+	\vspace{2.0cm}
 	\sffamily
 	\Large
 	David Haldimann
@@ -196,5 +209,8 @@
 %\nocite{*}
 \addcontentsline{toc}{chapter}{Bibliography}
 \bibliography{graphics}
+
+\includepdf{Aufgabenstellung_Semesterarbeit.pdf}
+\includepdf{declaration.pdf}
 
 \end{document}

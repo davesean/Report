@@ -1,40 +1,51 @@
 \chapter{Methods}
-In this chapter, the methods needed to create a parametric model and  a mapping between parametric models are introduced and explained. Firstly, the data gathering and preprocessing are outlined. Multiple variants of the parametric model are discussed. Different learning approaches for the mapping are reviewed. Lastly, a character editor is presented that is used to generate data for a parametric model.
+In this chapter, the methods needed to create a parametric model and a mapping between parametric models are introduced and explained. Firstly, the data gathering and preprocessing are outlined. Multiple variants of the parametric model are discussed. Different learning approaches for the mapping are reviewed. Lastly, a character editor is presented that is used to generate data for a parametric model.
 
 \section{Data Acquisition and Preprocessing}
-Optimally, it would be necessary to have a large data set of images of women before and after breast enhancement surgery, where the patients pose topless. It is very unlikely though that such a database exists, due to the fact that having breast surgery is a very personal topic and people generally don't enjoy posing naked. Therefore, the images used were downloaded from a website\footnote{https://my.crisalix.com/} that offered to simulate various plastic surgical procedures including breast enhancement. For each user, a 3D model of their torso was displayed side by side with different enhancements varying in size. Each model was made up of a sequence of 24 images displaying the torso from different angles. This dataset fit the requirements nicely as images are available for \textit{before} and \textit{after}, except the \textit{after} is generated and based on their model. Additionally, each after image sequence had a short label, usually describing how much silicon was added, that was also saved for further evaluation. In total 2'937 examples were retrieved and preprocessed. This dataset included images from 748 subjects of which each one was comprised of one \textit{before} and at least one \textit{after} image sequence.\\
+It would be necessary to have a large data set of images of women before and after breast enhancement surgery, where the patients pose topless. It is very unlikely though, that such a database exists, due to the fact that having breast surgery is a very personal topic and people generally don't enjoy posing naked. Therefore, the images used were downloaded from a website\footnote{https://my.crisalix.com/} that offered to simulate various plastic surgical procedures including breast enhancement. For each user, a 3D model of their torso was displayed side by side with different enhancements varying in size. An screenshot of the interface can be seen in figure \ref{fig:websiteExample}.\\
 
-In a next step these image sequences needed to be transformed into point clouds. This was done using a general-purpose Structure-from-Motion (SfM) \cite{schoenberger2016sfm} and Multi-View Stereo (MVS) \cite{schoenberger2016mvs} pipeline called COLMAP. This generated point clouds spanning from 5'000 to 15'000 points. Some of the images needed to be discarded, due to the fact that SfM created a point cloud with less than 1'000 points or the point clouds had holes, such that certain areas had no points and were not defined at all. The remaining point clouds were cleaned using a C++ implementation by Biland \cite{Biland17} that removed white points around the point clouds.
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.75\textwidth]{figures/websiteExample}
+\caption[Website UI example]{Example screenshot of the visualization on the website of Crisalix.}
+\label{fig:websiteExample}
+\end{figure}
 
-The mapping required to have one set of point clouds of \textit{before} examples and the corresponding\footnote{Corresponding meaning, based on the same subject.} \textit{after} examples. Therefore, the data was split into sets of \textit{before} and \textit{after} point clouds. As all of the \textit{after} point clouds were based on various breast enhancements, all the corresponding labels of given were processed and analyzed. This resulted in a table of terms sorted by the frequency of the term. The 9 most frequent terms can be found in table \ref{tableTerms}.
+Each model was made up of a sequence of 24 images displaying the torso from different angles. This dataset fit the requirements nicely, as images are available for \textit{before} and \textit{after}, except the \textit{after} is generated and based on their model. Additionally, each after image sequence had a short label, usually describing how much silicone was added, that was also saved for further evaluation. In total 2'937 examples were retrieved and preprocessed. This dataset included images from 748 subjects of which each one was comprised of one \textit{before} and at least one \textit{after} image sequence.\\
 
-\begin{table}[]
+In a next step, these image sequences needed to be transformed into point clouds. This was done, using a general-purpose Structure-from-Motion (SfM) \cite{schoenberger2016sfm} and Multi-View Stereo (MVS) \cite{schoenberger2016mvs} pipeline called COLMAP. This generated point clouds, spanning from 5'000 to 15'000 points. Some of the images needed to be discarded, due to the fact that SfM created a point cloud with less than 1'000 points or the point clouds had holes, such that certain areas had no points and were not defined at all. The remaining point clouds were cleaned using a C++ implementation by Biland \cite{Biland17} that removed white points around the borders.
+
+The mapping required to have one set of point clouds of \textit{before} examples and the corresponding\footnote{Corresponding meaning, based on the same subject.} \textit{after} examples. Therefore, the data was split into sets of \textit{before} and \textit{after} point clouds. As all of the \textit{after} point clouds were based on various breast enhancements, all the corresponding labels were processed and analyzed. This resulted in a table of terms sorted by the frequency of the term. The 9 most frequent terms can be found in table \ref{tableTerms}.
+
+\begin{table}[h]
 \centering
 \begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
 \hline
 \textbf{Term}      & \textbf{R:} & \textbf{L:} & \textbf{LSC} & \textbf{73} & \textbf{cc} & \textbf{LSA} & \textbf{350} & \textbf{Custom} & \textbf{300} \\ \hline
 \textbf{Frequency} & 205         & 205         & 100          & 85          & 54          & 73           & 73           & 70              & 60           \\ \hline
 \end{tabular}
-\caption[Table of most frequent terms]{The frequency of the top 9 terms can be seen in the upper row. The corresponding frequency is stated below.}
+\caption[Table of most frequent terms]{The 9 most frequent terms can be seen in the upper row. The corresponding frequency is stated below.}
 \label{tableTerms}
 \end{table}
 
-The first few terms are not informative, as they don't describe the breast themselves. The terms "LSC" and "73" are descriptions of a certain implant \footnote{http://www.simplybreastimplants.com/breast\_implant\_sizes/sebbin\_firm\_high\_profile.html} and "cc" is a measure of volume. The first meaningful term is "350", which means that an implant with a volume of 350ml was inserted. Therefore only the \textit{after} examples that were labelled "350" were included, to create a better mapping. After removing some of the point clouds that were not reconstructed well enough, this resulted in 57 examples in the \textit{before} and 57 in the \textit{after} set. All of these point clouds were further processed in a MATLAB implementation by Biland \cite{Biland17} to generate mesh files using a method called nonrigid iterative closest point (NRICP) algorithm. Given a point cloud and a base mesh, NRICP iteratively deforms the base mesh to match the points in the point cloud.
+The first few terms are not informative, as they don't describe the breast themselves. The terms "LSC" and "73" are descriptions of a certain implant \footnote{http://www.simplybreastimplants.com/breast\_implant\_sizes/sebbin\_firm\_high\_profile.html} and "cc" is a measure of volume. The first meaningful term is "350", which means that an implant with a volume of 350ml was inserted. Therefore, only the \textit{after} examples that were labelled "350" were included, to create a better mapping. After removing some of the point clouds that were not reconstructed well enough, this resulted in 57 examples in the \textit{before} and 57 in the \textit{after} set. All of these point clouds were further processed in a MATLAB implementation by Biland \cite{Biland17} to generate mesh files using a method called nonrigid iterative closest point (NRICP) algorithm. Given a point cloud and a base mesh, NRICP iteratively deforms the base mesh to match the points in the point cloud. The parameters used in this thesis can be found in the appendix in table \ref{nricpParams} and the template mesh used was the Audrey mesh. This is one of the meshes that was also used by Biland.
 
 \subsection{Alignment}
 \label{align}
-The meshes are aligned in the procedure of the MATLAB implementation by Biland \cite{Biland17}. Due to the alignemnt being done according to handpicked points, there are certain inaccuracies that can occur and lead to slight rotations of the meshes. To prevent the mapping from learning rotations, the \textit{before} and \textit{after} should be aligned pairwise. This was achieved by using an implementation of Horn's method \cite{horn1987closed}. Given two sets of vertices, Horn's method computes the translation, rotation and, if desired, scale change from one set to the other. As it is expected that for the same subject, exclusively points defining the breasts should vary from before to after, only a subset of vertices should be used. The points used in the alignment can be seen in figure \ref{fig:alignment}.
+The meshes are aligned in the procedure of the MATLAB implementation by Biland \cite{Biland17}. Due to the alignment being done according to handpicked points, there are certain inaccuracies that can occur and lead to slight rotations of the meshes. To prevent the mapping from learning rotations, the \textit{before} and \textit{after} should be aligned pairwise. This was achieved by using an implementation of Horn's method \cite{horn1987closed}. Given two sets of vertices, Horn's method computes the translation, rotation and, if desired, scale change from one set to the other. As it is expected, that for the same subject, exclusively points defining the breasts should vary from \textit{before} to \textit{after}, only a subset of vertices should be used. The points used in the alignment can be seen in figure \ref{fig:alignment}.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.75\textwidth]{figures/alignment}
-\caption[Alignment points visualized]{The mesh is depicted as the grey surface. The points drawn in green are used for the alignment.}
+\caption[Alignment points visualized]{The mesh is depicted as the grey surface. The green points are used for the alignment.}
 \label{fig:alignment}
 \end{figure}
 
 \section{Parametric Model from Meshes}
+In the next section, it is described how a parametric model is obtained using principle component analysis (PCA). This first method is the standard method, that is used in this thesis. In the following subsections, two different variations are described.
+\subsection{Points}
 \label{paramModel}
-In this section it is described how a parametric model is obtained using principle component analysis (PCA). Given $n$ meshes $m_i \in \mathbb{R}^{k \times 3}$, where $k$ describes the amount of vertices $m$ has, each mesh needs to be transformed to be of shape $\mathbb{R}^{1 \times 3k}$. Then, all transformed meshes are stacked into a matrix $M \in \mathbb{R}^{n \times 3k}$. As the differences over each column isn't significant, the mean $\bar{m}$ of the matrix $M$ is subtracted from each row of $M$.
+In this subsection, the general procedure to create a parametric model based on points, is described. Given $n$ meshes $m_i \in \mathbb{R}^{k \times 3}$, where $k$ describes the amount of vertices $m$ has, each mesh needs to be transformed to be of shape $\mathbb{R}^{1 \times 3k}$. Then, all transformed meshes are stacked into a matrix $M \in \mathbb{R}^{n \times 3k}$. As the differences over each column isn't significant, the mean $\bar{m}$ of the matrix $M$ is subtracted from each row of $M$.
 \begin{gather}
 \mathbf{A} :=
 \begin{bmatrix}
@@ -46,7 +57,7 @@ In this section it is described how a parametric model is obtained using princip
 \in \mathbb{R}^{n \times 3k}
 \end{gather}
 
-Next, PCA is run with matrix $A$ as the input. PCA is able to reduce the dimensionality of the data while retaining most of the information from the initial data set. This is achieved by finding orthogonal basis vectors, where the first basis vector is responsible for the largest variance in the data. The second basis vector needs to be orthogonal to the first and is responsible for the second largest variance of the data. This holds for each following basis vector. These basis vectors in PCA are also known as principle components.
+Next, PCA is run with matrix $A$ as the input. PCA is able to reduce the dimensionality of the data, while retaining most of the information from the initial data set. This is achieved, by finding orthogonal basis vectors, where the first basis vector is responsible for the largest variance in the data. The second basis vector needs to be orthogonal to the first and is responsible for the second largest variance of the data. This holds for each following basis vector. These basis vectors in PCA are also known as principle components.
 
 The output of the PCA function is:
 
@@ -65,7 +76,7 @@ s_1&s_2&\cdots&s_{n-1}
 \in \mathbb{R}^{n \times n-1}
 \end{gather}
 
-where coefficient $c_i$ is the $i$-th principle component and score $s_i$ is the $i$-th parameter vector corresponding to the $i$-th input. Therefore the input data can be reproduced by computing $\mathbf{A = score \times {coeff}^T}$. Instead of using all $n-1$ coefficients it is possible to only use the first $\mathbf{q}$ coefficients resulting in an approximation of the space. The parameters $\mathbf{p_{q,new}}$ for a new input mesh $m_{new}$ can be easily computed for $\mathbf{q}$ coefficients by first reshaping the mesh to be of the form $\mathbb{R}^{3k \times 1}$ and subtracting the mean $\bar{m}$. This is done the same way as above, adding an additional step to transpose. Then the pseudoinverse of $\mathbf{coeff_{(q)}}$ is multiplied from the left to compute the corresponding parameters $\mathbf{p_{q,new}}$:
+where coefficient $c_i$ is the $i$-th principle component and score $s_i$ is the $i$-th parameter vector corresponding to the $i$-th input. Therefore, the input data can be reproduced by computing $\mathbf{A = score \times {coeff}^T}$. Instead of using all $n-1$ coefficients, it is possible to only use the first $\mathbf{q}$ coefficients resulting in an approximation of the space. The parameters $\mathbf{p_{q,new}}$ for a new input mesh $m_{new}$ can be easily computed for $\mathbf{q}$ coefficients, by first reshaping the mesh to be of the form $\mathbb{R}^{3k \times 1}$ and subtracting the mean $\bar{m}$. This is done the same way as above, adding an additional step to transpose. Then, the pseudoinverse of $\mathbf{coeff_{(q)}}$ is multiplied from the left to compute the corresponding parameters $\mathbf{p_{q,new}}$:
 \begin{gather}
 \mathbf{p_{q,new}} = \mathbf{coeff^+_{(q)}} \cdot (m_{new}' - \bar{m})^T  \text{  where }
 \mathbf{coeff_{(q)}} :=
@@ -74,15 +85,14 @@ where coefficient $c_i$ is the $i$-th principle component and score $s_i$ is the
 \end{bmatrix}
 \in \mathbb{R}^{3k \times q}
 \end{gather}
-
-In this example the parametric model is based on the vertices of the mesh. In the next subsections, two other variants are explored and explained.
+The number of principle components used to approximate the space was reduced to $30$ in this thesis. In this example, the parametric model is based on the vertices of the mesh. In the next subsections, two other variants are explored and explained.
 \subsection{Face Deformations}
 \label{faceDeform}
-Instead of defining a mesh by its vertices, it is possible to describe it by the deformations of the faces. This is done by defining one source mesh and computing how each face is deformed in relation to the source mesh. One way to quantify a deformation of a face was described by Sumner \cite{sumner2004deformation}, where the idea was to transfer triangle deformations between similar meshes. First, a new vertex needs to be computed such that an affine transformation can be determined. The fourth vertex is defined as follows:
+Instead of defining a mesh by its vertices, it is possible to describe the mesh by the deformations of the faces. This is done by defining one source mesh and computing how each face is deformed in relation to the source mesh. One way to quantify a deformation of a face, was described by Sumner \cite{sumner2004deformation}, where the idea was to transfer triangle deformations between similar meshes. First, a new vertex needs to be computed, such that an affine transformation can be determined. The fourth vertex is defined as follows:
 \begin{gather}
   \mathbf{v_4} = \mathbf{v_1} + (\mathbf{v_2} - \mathbf{v_1})\cross(\mathbf{v_3}-\mathbf{v_1})/\sqrt{\lvert(\mathbf{v_2}-\mathbf{v_1})\cross(\mathbf{v_3}-\mathbf{v_1})\rvert} \label{normalequation}
 \end{gather}
-%% Add image of triangle with a point added along the normal to describe what is happening up here
+
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.4\textwidth]{figures/normal}
@@ -91,7 +101,7 @@ Instead of defining a mesh by its vertices, it is possible to describe it by the
 \end{figure}
 
 The cross product is scaled by the reciprocal of the square root of its length, to keep the distance proportional to the length of the triangle edges. See figure \ref{fig:normal} for a visualization of adding a vertex on the normal.
-Given both faces with one additional vertex, the following equations can be posed:
+Given both triangles with one additional vertex, the following equations can be posed:
 \begin{gather}
  \mathbf{Q}\mathbf{v_i}+\mathbf{d} = \mathbf{\tilde{v}_i}, \mathbf{i} \in \mathbf{1} \dotsc \mathbf{4}
 \end{gather}
@@ -110,10 +120,10 @@ The closed form expression for $\mathbf{Q}$ is defined as
 \begin{gather}
   \mathbf{Q}=\mathbf{\tilde{V}}\mathbf{V}^{-1}
 \end{gather}
-To fully describe a mesh, this $\mathbf{Q}$ matrix needs to be computed for each face of the mesh. Finally, the mesh is represented by $\mathbf{D} \in \mathbb{R}^{3 \times 3h}$ where $\mathbf{h}$ is the number of faces the mesh has. To be able to run PCA, each mesh needs to be reshaped to be of form $\mathbf{D'} \in \mathbb{R}^{1 \times 9h}$ and the rest of the process is the same as above in section \ref{paramModel}.
+To fully describe a mesh, this $\mathbf{Q}$ matrix needs to be computed for each face of the mesh. Finally, the mesh is represented by $\mathbf{D} \in \mathbb{R}^{3 \times 3h}$ where $\mathbf{h}$ is the number of triangles the mesh has. To be able to run PCA, each mesh needs to be reshaped to be of form $\mathbf{D'} \in \mathbb{R}^{1 \times 9h}$ and the rest of the process is the same as above in section \ref{paramModel}.
 
 \subsection{Point Normals}
-This method is very much similar to the one described in section \ref{paramModel}. In addition to the vertices of the mesh, one vertex per face is computed as described in equation \ref{normalequation} and added to the list of vertices of the mesh. Therefore the mesh matrix will be of form $\mathbb{R}^{k+h \times 3}$ where $\mathbf{k}$ is the number of original vertices and $\mathbf{h}$ is the number of faces of the mesh.
+This method is very much similar to the one described in section \ref{paramModel}. In addition to the vertices of the mesh, one vertex per face is computed as described in equation \ref{normalequation} and added to the list of vertices of the mesh. Therefore, the mesh matrix will be of form $\mathbb{R}^{k+h \times 3}$, where $\mathbf{k}$ is the number of original vertices and $\mathbf{h}$ is the number of triangles of the mesh.
 
 \section{Mapping}
 The following segment describes how a mapping can be computed in a linear or a non-linear way. The data available is the parameters returned by both the parametric models for the \textit{before} and \textit{after} examples. The matrices of the data are
@@ -143,7 +153,7 @@ The first method used, was the linear system solver by MATLAB (also known as bac
   \mathbf{P_{before}} \cdot \mathbf{M_{linear}} = \mathbf{P_{after}}
   \text{ where } M_{linear} \in \mathbb{R}^{n-1 \times n-1}.
 \end{gather}
-It is clear that an explicit linear transformation could be found for each parameter pair, but the goal is to have one mapping that works for each parameter pair. This is also known as linear regression. One basic example in linear regression is the task of fitting a line to a point cloud. As all the points of the point cloud do not lie on one line, it isn't possible to define a straight line. Therefore a line is sought after, such that all points are as close as possible on average. This is depicted in figure \ref{fig:linReg}.
+It is clear, that an explicit linear transformation could be found for each parameter pair, but the goal is to have one mapping that works for each parameter pair. This is also known as linear regression. One basic example in linear regression is the task of fitting a line to a point cloud. As all the points of the point cloud do not lie on one line, it isn't possible to define a straight line. Therefore, a line is sought after, such that all points are as close as possible on average. This is depicted in figure \ref{fig:linReg}.
 
 \begin{figure}[h]
 \centering
@@ -155,7 +165,7 @@ It is clear that an explicit linear transformation could be found for each param
 \subsection{Non-Linear Variants}
 \label{sec:nonLin}
 This section deals with non-linear methods to solve the regression problem described above. All the methods used are part of the scikit-learn library \cite{scikit-learn}. It is common in a machine learning setting to split data into two sets. One set is used to train the model and the other is used to evaluate how well the method does on data, that was not part of the first set. Both data sets should be drawn from the same distribution. This is necessary because the model shouldn't be penalized for performing badly on problems it didn't encounter in the training phase.\\
-During the training phase it is standard to run grid search. Grid search varies the parameters of the model to find the best set of parameters for a specific task. It needs to be considered that grid search can lead to overfitting, this occurs when the error on the training set is reduced at the cost of increasing the test error. This can be avoided by adding regularization terms or by running grid search along with cross-validation.
+During the training phase, it is standard to run grid search. Grid search varies the parameters of the model to find the best set of parameters for a specific task. It needs to be considered, that grid search can lead to overfitting. This occurs when the error on the training set is reduced at the cost of increasing the test error. This can be avoided by adding regularization terms or by running grid search along with cross-validation.
 \subsubsection{Decision Tree}
 \label{sec:dt}
 One category of machine learning approaches is based on so called decision trees (DT). A decision tree uses a tree-like approach, where nodes of the tree are defined to split the data set into subsets corresponding to groups. As an example, the goal is to have a model that can predict the weight of a person, based on height, daily activity and daily calorie intake as features. Using a decision tree, the value of height could split the data set, as taller people tend to be heavier than small people. This is done over all features until the complete data set is divided into smaller subsets. Leafs make up the end of a decision tree. Each leaf has a certain value connected to it, in the case mentioned before it would be a certain weight range or value. \\
@@ -164,16 +174,18 @@ When the weight of a new person would need to be predicted, one would follow the
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.75\textwidth]{figures/dtdiag}
-\caption[Diagram of descision tree]{Example of a decision tree following example of section \ref{sec:dt}}
+\caption[Diagram of decision tree]{Example of a decision tree following example of section \ref{sec:dt}}
 \label{fig:dtdiag}
 \end{figure}
 
+\newpage
+
 \subsubsection{Random Forest}
-The random forest (RF) regressor is also a tree-like approach similar to the decision tree. The main difference is that the decision tree considers all features when splitting and thus can be prone to overfitting. Random forest chooses features at random and builds decision trees based on those features. This is done for multiple trees until all subtrees are combined.
+The random forest (RF) regressor is also a tree-like approach, similar to the decision tree. The main difference is, that the decision tree considers all features when splitting and thus can be prone to overfitting. Random forest chooses features at random and builds decision trees based on those features. This is done for multiple trees until all subtrees are combined.
 
 \subsubsection{Multilayer Perceptron}
-The multilayer perceptron (MLP) is a type of neural network. It uses a feedforward approach to propagate information through the network. MLP has at least three layers where the first layer is the input layer and the last layer is the output layer. Each layer is made up of neurons, that receive information from the previous layer, apply some operation followed by an activation function and pass the result on to the next layer. These activations can either be linear or non-linear. It doesn't make sense to have multiple intermediate layers with linear activation functions, as any combination of linear functions, can be described by one linear function. \\
-Each layer is made up of multiple neurons, each with their own weights and biases, and an activation function. All weights and biases are initialized at random. In the training phase a technique known as backpropagation is applied. Given an example, input and outcome, the input data is passed through all the layers. The resulting output is compared to the actual outcome. Given the difference between the two values, weights and biases are modified to reduce the difference, starting from the output layer, moving back through the hidden layers up to the input layer. A basic scheme of a MLP is shown in figure \ref{fig:mlpdiag}.
+The multilayer perceptron (MLP) is a type of neural network. It uses a feedforward approach to propagate information through the network. MLP has at least three layers, where the first layer is the input layer and the last layer is the output layer. Each layer is made up of neurons, that receive information from the previous layer, apply a multiplication with a weight and an addition of a bias term followed by an activation function and pass the result on to the next layer. These activations can either be linear or non-linear. It doesn't make sense to have multiple intermediate layers with linear activation functions, as any combination of linear functions can be described by one linear function. \\
+Each layer is made up of multiple neurons, each with their own weights and biases, and an activation function. All weights and biases are initialized at random. In the training phase, a technique known as backpropagation is applied. Given an example, input and outcome, the input data is passed through all the layers. The resulting output is compared to the actual outcome. Given the difference between the two values, weights and biases are modified to reduce the difference, starting from the output layer, moving back through the hidden layers, up to the input layer. A basic scheme of a MLP is shown in figure \ref{fig:mlpdiag}.
 
 \begin{figure}[h]
 \centering
@@ -184,17 +196,17 @@ Each layer is made up of multiple neurons, each with their own weights and biase
 
 
 \section{Parametric Model from Editor}
-In all of the previous sections the parametric model was based off of real world data. In this section the same procedure is done as in section \ref{paramModel}, except that the meshes used for PCA were generated by software called MakeHuman \footnote{http://www.makehumancommunity.org/}. MakeHuman is a free and open source character modelling tool. It starts out with a gender neutral base mesh that can be modelled by varying sliders. These sliders apply linear interpolations to the base mesh between the extreme positions for a specific semantic paramter.\\
-There are over 40 semantic paramters in MakeHuman and the semantic paramters are categorized by what areas of the body they modify. The graphical user interface of MakeHuman can be seen in figure \ref{fig:mhgui}. Using the scripting feature in MakeHuman multiple meshes could be generated, exported and later imported into MATLAB.
+In all of the previous sections, the parametric model was based off of real world data. In this section, the same procedure is done as in section \ref{paramModel}, except that the meshes used for PCA were generated by software called MakeHuman \footnote{http://www.makehumancommunity.org/}. MakeHuman is a free and open source character modelling tool. It starts out with a gender neutral base mesh that can be modelled by varying sliders. These sliders apply linear interpolations to the base mesh between the extreme positions for a specific semantic parameter.\\
+There are over 40 semantic parameters in MakeHuman and the semantic parameters are categorized by what areas of the body they modify. The graphical user interface of MakeHuman can be seen in figure \ref{fig:mhgui}. Using the scripting feature in MakeHuman, multiple meshes could be generated, exported and later imported into MATLAB.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=1\textwidth]{figures/mhgui}
-\caption{Graphical user interface of MakeHuman.}
+\caption[MakeHuman interface]{Graphical user interface of MakeHuman. On the left some of the semantic parameters can be seen.}
 \label{fig:mhgui}
 \end{figure}
 
 \section{Fitting parametric models to point clouds}
 \label{fitModel}
-Given a parametric model, it is possible to create a large diversity of possible outputs by varying the parameters. But finding the specific parameters for a new point cloud is a non-linear optimization problem. Therefore a C++ implementation by Biland \cite{Biland17}, using an open source C++ library for optimization problems called the Ceres solver \cite{ceres-solver}, was slightly modified and used. This implementation allows to fit a parametric model to a point cloud given a few keypoints of the point cloud. The slight modification enables a list of indices to be used as candidates for the correspondences.\\
-In a first step, the keypoints are used to find the parameters of translation, rotation and scaling. Afterwards, a select number of points are chosen as correspondences for the model and, using a nearest neighbour approach, the closest points in the point cloud are found. This implementation tries to minimize the distance between all the correspondences iteratively by varying the parameters of the model. Additionally, constraints are applied to the values the parameters are allowed to take. This prevents one parameter from becoming too large and also possibly forces the model to use multiple parameters rather than to rely on a single parameter. After a certain number of iterations has been reached, a certain threshold in accuracy is passed or the change in parameters is vanishingly small, the resulting mesh and parameters are returned.
+Given a parametric model, it is possible to create a large diversity of possible outputs by varying the parameters. But finding the specific parameters for a new point cloud is a non-linear optimization problem. Therefore, a C++ implementation by Biland \cite{Biland17}, using an open source C++ library for optimization problems called the Ceres solver \cite{ceres-solver}, was slightly modified and used. This implementation allows to fit a parametric model to a point cloud given a few keypoints of the point cloud. The slight modification enables a list of indices to be used as candidates for the correspondences required.\\
+In a first step, the keypoints are used to find the parameters of translation, rotation and scaling. Afterwards, a select number of points are chosen as correspondences for the model and, using a nearest neighbour approach, the closest points in the point cloud are found. This implementation tries to minimize the distance between all the correspondences iteratively, by varying the parameters of the model. Additionally, constraints are applied to the values the parameters are allowed to take. This prevents one parameter from becoming too large and also possibly forces the model to use multiple parameters rather than to rely on a single parameter. After a certain number of iterations has been reached, a certain threshold in accuracy is passed or the change in parameters is vanishingly small, the resulting mesh and parameters are returned.

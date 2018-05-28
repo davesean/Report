@@ -1,11 +1,43 @@
 \chapter{Appendix}
 
+\section{Tables}
+
 \begin{table}[]
 \centering
-\begin{tabular}{lllc}
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{NRICP}                                                      & \textbf{Rigid initialization}    & false                           \\ \hline
+\textbf{}                                                           & \textbf{Use normals}             & false                           \\ \hline
+\textbf{}                                                           & \textbf{Epsilon}                 & $10^{-4}$                       \\ \hline
+\textbf{}                                                           & \textbf{Lambda}                  & 1                               \\ \hline
+\textbf{}                                                           & \textbf{Bidirectional weighting} & 0                               \\ \hline
+\textbf{}                                                           & \textbf{Ignore boundary}         & 0                               \\ \hline
+\textbf{}                                                           & \textbf{Normal weight}           & 0                               \\ \hline
+\textbf{}                                                           & \textbf{Alphas}                  & 100, 10, 9, 8, 7, 6, 5, 4, 3, 2 \\ \hline
+\textbf{\begin{tabular}[c]{@{}l@{}}Keypoint\\ Weights\end{tabular}} & \textbf{Nipples}                 & 20                              \\ \hline
+\textbf{}                                                           & \textbf{Sternum}                 & 0                               \\ \hline
+\textbf{}                                                           & \textbf{Navel}                   & 0                               \\ \hline
+\textbf{}                                                           & \textbf{Throat}                  & 0                               \\ \hline
+\textbf{}                                                           & \textbf{Armpits}                 & 0                               \\ \hline
+\textbf{}                                                           & \textbf{Breast insides}          & 10                              \\ \hline
+\textbf{}                                                           & \textbf{Breast undersides}       & 10                              \\ \hline
+\textbf{}                                                           & \textbf{Breast outsides}         & 1                               \\ \hline
+\textbf{}                                                           & \textbf{Diagonal}                & 0                               \\ \hline
+\textbf{}                                                           & \textbf{Border}                  & 0                               \\ \hline
+\textbf{}                                                           & \textbf{Align}                   & 1, 1, 1, 1                      \\ \hline
+\textbf{}                                                           & \textbf{Cut}                     & 1, 1, 1, 1                      \\ \hline
+\end{tabular}
+\caption[NRICP parameters]{The parameters for the NRICP implementation used in this thesis.}
+\label{nricpParams}
+\end{table}
+
+\begin{table}[]
+\centering
+\begin{adjustwidth}{-2cm}{}
+\begin{tabular}{@{}lllc}
 \cline{2-4}
 \multicolumn{1}{l|}{\textbf{PCA}}        & \multicolumn{1}{l|}{\textbf{Method}}        & \multicolumn{1}{l|}{\textbf{Possible Parameters}}                                                                                                           & \multicolumn{1}{c|}{\textbf{Best}} \\ \cline{2-4}
-\multicolumn{1}{l|}{\textbf{Incomplete}} & \multicolumn{1}{l|}{\textbf{Random Forest}} & \multicolumn{1}{l|}{'estimator\_\_n\_estimators':{[}5,10,20,30{]},}                                                                                         & \multicolumn{1}{c|}{30}            \\ \cline{2-4}
+\multicolumn{1}{l|}{\textbf{Inc.}} & \multicolumn{1}{l|}{\textbf{Random Forest}} & \multicolumn{1}{l|}{'estimator\_\_n\_estimators':{[}5,10,20,30{]},}                                                                                         & \multicolumn{1}{c|}{30}            \\ \cline{2-4}
 \multicolumn{1}{l|}{\textbf{}}           & \multicolumn{1}{l|}{\textbf{}}              & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}'estimator\_\_max\_features':\\ ('auto', 'sqrt','log2'),\end{tabular}}                                       & \multicolumn{1}{c|}{auto}          \\ \cline{2-4}
 \multicolumn{1}{l|}{\textbf{}}           & \multicolumn{1}{l|}{\textbf{}}              & \multicolumn{1}{l|}{'estimator\_\_max\_depth':{[}2,4,8,16{]}}                                                                                               & \multicolumn{1}{c|}{8}             \\ \cline{2-4}
 \multicolumn{1}{l|}{\textbf{}}           & \multicolumn{1}{l|}{\textbf{DT}}            & \multicolumn{1}{l|}{'estimator\_\_criterion':('mse','friedman\_mse','mae'),}                                                                                & \multicolumn{1}{c|}{mse}           \\ \cline{2-4}
@@ -19,7 +51,7 @@
 \multicolumn{1}{l|}{\textbf{}}           & \multicolumn{1}{l|}{\textbf{}}              & \multicolumn{1}{l|}{'estimator\_\_solver':('lbfgs','adam','sgd'),}                                                                                          & \multicolumn{1}{c|}{adam}          \\ \cline{2-4}
 \multicolumn{1}{l|}{\textbf{}}           & \multicolumn{1}{l|}{\textbf{}}              & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}'estimator\_\_hidden\_layer\_sizes':\\ {[}(15,45,),(45,30,),(60,45,),(60,45,30),(60,45,15){]},\end{tabular}} & \multicolumn{1}{c|}{(45,30,)}      \\ \cline{2-4}
 \multicolumn{1}{l|}{\textbf{}}           & \multicolumn{1}{l|}{\textbf{}}              & \multicolumn{1}{l|}{early\_stopping: true}                                                                                                                  & \multicolumn{1}{c|}{true}          \\ \cline{2-4}
-\multicolumn{1}{l|}{\textbf{Complete}}   & \multicolumn{1}{l|}{\textbf{RF}}            & \multicolumn{1}{l|}{'estimator\_\_n\_estimators':{[}5,10,20,30{]},}                                                                                         & \multicolumn{1}{c|}{30}            \\ \cline{2-4}
+\multicolumn{1}{l|}{\textbf{Com.}}   & \multicolumn{1}{l|}{\textbf{RF}}            & \multicolumn{1}{l|}{'estimator\_\_n\_estimators':{[}5,10,20,30{]},}                                                                                         & \multicolumn{1}{c|}{30}            \\ \cline{2-4}
 \multicolumn{1}{l|}{\textbf{}}           & \multicolumn{1}{l|}{\textbf{}}              & \multicolumn{1}{l|}{'estimator\_\_max\_features':('auto', 'sqrt','log2'),}                                                                                  & \multicolumn{1}{c|}{auto}          \\ \cline{2-4}
 \multicolumn{1}{l|}{\textbf{}}           & \multicolumn{1}{l|}{\textbf{}}              & \multicolumn{1}{l|}{'estimator\_\_max\_depth':{[}2,4,8,16{]}}                                                                                               & \multicolumn{1}{c|}{4}             \\ \cline{2-4}
 \multicolumn{1}{l|}{\textbf{}}           & \multicolumn{1}{l|}{\textbf{DT}}            & \multicolumn{1}{l|}{'estimator\_\_criterion':('mse','friedman\_mse','mae'),}                                                                                & \multicolumn{1}{c|}{friedman\_mse} \\ \cline{2-4}
@@ -37,5 +69,45 @@
 \end{tabular}
 \caption[Grid Search parameter table]{The possible parameters were varied to find the best combination. The best option can be seen in the last column.}
 \label{gstable}
+ \end{adjustwidth}
+\end{table}
 
+
+\begin{table}[]
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{\begin{tabular}[c]{@{}l@{}}Semantic\\ Parameters\end{tabular}}     & \textbf{\begin{tabular}[c]{@{}c@{}}Min\\ Value\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Middle\\ Value\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Max\\ Value\end{tabular}} \\ \hline
+\textbf{\begin{tabular}[c]{@{}l@{}}Body\\ Proportion\end{tabular}}         & 0                                                            & 0.5                                                             & 1                                                            \\ \hline
+\textbf{Muscle}                                                            & 0.2                                                          & 0.5                                                             & 1                                                            \\ \hline
+\textbf{Weight}                                                            & 0.2                                                          & 0.5                                                             & 1                                                            \\ \hline
+\textbf{Age}                                                               & 0.5                                                          & 0.75                                                            & 1                                                            \\ \hline
+\textbf{\begin{tabular}[c]{@{}l@{}}Breast\\ Firmness\end{tabular}}         & 0                                                            & 0.5                                                             & 1                                                            \\ \hline
+\textbf{\begin{tabular}[c]{@{}l@{}}Breast\\ Size\end{tabular}}             & 0                                                            & 0.5                                                             & 1                                                            \\ \hline
+\textbf{\begin{tabular}[c]{@{}l@{}}Breast Trans\\ Down\end{tabular}}       & 0                                                            & 0                                                               & 1                                                            \\ \cline{2-4} 
+\textbf{\begin{tabular}[c]{@{}l@{}}Breast Trans\\ Up\end{tabular}}         & 1                                                            & 0                                                               & 0                                                            \\ \hline
+\textbf{\begin{tabular}[c]{@{}l@{}}Breast Volume\\ Vert Down\end{tabular}} & 0                                                            & 0                                                               & 1                                                            \\ \cline{2-4} 
+\textbf{\begin{tabular}[c]{@{}l@{}}Breast Volume\\ Vert Up\end{tabular}}   & 1                                                            & 0                                                               & 0                                                            \\ \hline
+\end{tabular}
+\caption[Semantic Parameter values for MakeHuman]{A table of the values set for the semantic parameters of the MakeHuman editor. For the first 6 parameters the ranges went from 0 to 1. The last two parameters were made up of two parameters each. Therefore, to create 3 different variations, either one was set to 1 or both were set to 0.}
+\label{tableSemantic}
+\end{table}
+
+\begin{table}[]
+\centering
+\begin{tabular}{l|l|c|}
+\cline{2-3}
+\textbf{}       & \textbf{Parameter}                                                                  & \multicolumn{1}{l|}{\textbf{Value}} \\ \cline{2-3} 
+\textbf{Global} & \textbf{MAX\_NUM\_PCS}                                                              & 30                                  \\ \cline{2-3} 
+\textbf{}       & \textbf{NUM\_PTS}                                                                   & 300                                 \\ \cline{2-3} 
+\textbf{}       & \textbf{MAX\_REP}                                                                   & 100                                 \\ \cline{2-3} 
+\textbf{}       & \textbf{NUM\_STD}                                                                   & 2                                   \\ \cline{2-3} 
+\textbf{Solver} & \textbf{\begin{tabular}[c]{@{}l@{}}minimizer\_progress\_\\ to\_stdout\end{tabular}} & true                                \\ \cline{2-3} 
+\textbf{}       & \textbf{num\_threads}                                                               & 8                                   \\ \cline{2-3} 
+\textbf{}       & \textbf{\begin{tabular}[c]{@{}l@{}}use\_nonmonotomic\_\\ steps\end{tabular}}        & true                                \\ \cline{2-3} 
+\textbf{}       & \textbf{function\_tolerance}                                                        & $10^{-6}$          					\\ \cline{2-3} 
+\textbf{}       & \textbf{\begin{tabular}[c]{@{}l@{}}mac\_num\_\\ iterations\end{tabular}}            & 500                                 \\ \cline{2-3} 
+\end{tabular}
+\caption[Table of Ceres Parameters]{The parameters are separated into global and solver specific parameters of the Ceres implementation. These are the set values in the implementation.}
+\label{tableCeresParams}
 \end{table}

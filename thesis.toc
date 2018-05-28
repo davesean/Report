@@ -1,5 +1,5 @@
-\contentsline {chapter}{List of Figures}{vii}{chapter*.3}
-\contentsline {chapter}{List of Tables}{ix}{chapter*.4}
+\contentsline {chapter}{List of Figures}{vii}{chapter*.4}
+\contentsline {chapter}{List of Tables}{ix}{chapter*.5}
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Parametric Model}{1}{section.1.1}
 \contentsline {section}{\numberline {1.2}Mapping}{2}{section.1.2}
@@ -7,18 +7,19 @@
 \contentsline {chapter}{\numberline {2}Related Work}{3}{chapter.2}
 \contentsline {chapter}{\numberline {3}Methods}{5}{chapter.3}
 \contentsline {section}{\numberline {3.1}Data Acquisition and Preprocessing}{5}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}Alignment}{6}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.1}Alignment}{7}{subsection.3.1.1}
 \contentsline {section}{\numberline {3.2}Parametric Model from Meshes}{7}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Face Deformations}{8}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Point Normals}{9}{subsection.3.2.2}
-\contentsline {section}{\numberline {3.3}Mapping}{9}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}Linear Method}{9}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.2.1}Points}{8}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Face Deformations}{9}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}Point Normals}{10}{subsection.3.2.3}
+\contentsline {section}{\numberline {3.3}Mapping}{10}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Linear Method}{10}{subsection.3.3.1}
 \contentsline {subsection}{\numberline {3.3.2}Non-Linear Variants}{10}{subsection.3.3.2}
-\contentsline {subsubsection}{Decision Tree}{10}{section*.10}
-\contentsline {subsubsection}{Random Forest}{11}{section*.12}
-\contentsline {subsubsection}{Multilayer Perceptron}{11}{section*.13}
+\contentsline {subsubsection}{\nonumberline Decision Tree}{11}{section*.12}
+\contentsline {subsubsection}{\nonumberline Random Forest}{12}{section*.14}
+\contentsline {subsubsection}{\nonumberline Multilayer Perceptron}{12}{section*.15}
 \contentsline {section}{\numberline {3.4}Parametric Model from Editor}{12}{section.3.4}
-\contentsline {section}{\numberline {3.5}Fitting parametric models to point clouds}{12}{section.3.5}
+\contentsline {section}{\numberline {3.5}Fitting parametric models to point clouds}{13}{section.3.5}
 \contentsline {chapter}{\numberline {4}Results}{15}{chapter.4}
 \contentsline {section}{\numberline {4.1}Error Metrics}{15}{section.4.1}
 \contentsline {section}{\numberline {4.2}Evaluation}{16}{section.4.2}
@@ -32,11 +33,12 @@
 \contentsline {subsection}{\numberline {4.4.1}Problem Setting}{19}{subsection.4.4.1}
 \contentsline {subsection}{\numberline {4.4.2}Results}{20}{subsection.4.4.2}
 \contentsline {subsection}{\numberline {4.4.3}Discussion}{20}{subsection.4.4.3}
-\contentsline {section}{\numberline {4.5}Parametric Models}{21}{section.4.5}
-\contentsline {subsection}{\numberline {4.5.1}Problem Setting}{21}{subsection.4.5.1}
-\contentsline {subsection}{\numberline {4.5.2}Results}{21}{subsection.4.5.2}
-\contentsline {subsection}{\numberline {4.5.3}Discussion}{22}{subsection.4.5.3}
+\contentsline {section}{\numberline {4.5}Parametric Models}{22}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}Problem Setting}{22}{subsection.4.5.1}
+\contentsline {subsection}{\numberline {4.5.2}Results}{22}{subsection.4.5.2}
+\contentsline {subsection}{\numberline {4.5.3}Discussion}{23}{subsection.4.5.3}
 \contentsline {chapter}{\numberline {5}Conclusion}{25}{chapter.5}
 \contentsline {section}{\numberline {5.1}Outlook}{25}{section.5.1}
 \contentsline {chapter}{\numberline {A}Appendix}{27}{appendix.A}
-\contentsline {chapter}{Bibliography}{29}{table.caption.23}
+\contentsline {section}{\numberline {A.1}Tables}{27}{section.A.1}
+\contentsline {chapter}{Bibliography}{32}{table.caption.28}
